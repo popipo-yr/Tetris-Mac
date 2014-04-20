@@ -30,8 +30,8 @@ function main_init()
 	gen_shape()
 	timer_reset()
 	input_timer_reset()
-	air.music_play("bgm")
-	test()
+	--air.music_play("bgm")
+	--test()
 end
 
 function main_update()
@@ -67,6 +67,9 @@ function main_update()
 			timer_reset()
 		end
 	elseif state == g.MENU then
+		state = g.GAME
+		face = 1
+		return
 		if g.key_flag == 1 then
 			if input_timer_pass() < 0.3 then
 				return
@@ -132,8 +135,8 @@ end
 
 function main_draw()
 	draw_map()
-	draw_menu()
-	draw_face()
+	--draw_menu()
+	--draw_face()
 end
 
 -- 绘制地图

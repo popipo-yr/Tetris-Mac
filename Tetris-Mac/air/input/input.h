@@ -5,8 +5,17 @@
 //#include <windows.h>
 #include <map>
 #include <string>
+#include <GLUT/GLUT.h>
 using std::map;
 using std::string;
+
+#ifndef VK_RETURN
+#define VK_RETURN 0x0D
+#endif
+
+#ifndef VK_SPACE
+#define VK_SPACE 0x20
+#endif
 
 namespace air
 {
@@ -21,7 +30,7 @@ namespace air
 	{
     private:
         enum   { KEY_NUM = 256, MOUSE_NUM = 3 };
-		//HWND    m_wnd;
+		int    m_wnd;
 		float	      m_x, m_y, m_wheel;
 		short	  m_mouse[MOUSE_NUM];
 		short	  m_last_mouse[MOUSE_NUM];
@@ -54,11 +63,15 @@ namespace air
         // 返回值：键值
 		int get_key_down() const;
 		int get_key_up() const;
+        
+        void setKeyDown(unsigned int key);
+        
 	private:
 		void _bulid_key_name_table();
 		CInput();
 		CInput(const CInput &r);
 		CInput& operator=(const CInput &r);
+
 	};
 	extern CInput* g_p_input;
 }

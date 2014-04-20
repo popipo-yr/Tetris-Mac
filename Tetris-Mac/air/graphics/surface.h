@@ -22,7 +22,7 @@ namespace air
 			hdc：			设备上下文
 			width，height：	窗口尺寸
 		*/
-		//COpenGL(HDC hdc, int width, int height);
+        COpenGL(int hdc, int width, int height);
 		~COpenGL();
 		/*
 			窗口尺寸改变
@@ -42,7 +42,7 @@ namespace air
 			交换缓存
 			hdc：		进行交换的设备上下文
 		*/
-		//void swap_buff(HDC hdc) const;
+		void swap_buff(int hdc) const;
 		/*
 			返回渲染模式
 		*/

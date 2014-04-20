@@ -22,20 +22,20 @@ namespace air
 	bool CPenManager::create(string name, int size, string style, int space, int weight)
 	{
 		Pen pen;
-		pen.hfont = CreateFontA(size, space, 0, 0, weight, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS,
-								CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, FF_DONTCARE | DEFAULT_PITCH, style.c_str());
-		if (pen.hfont == NULL)
-			return false;
+//		pen.hfont = CreateFontA(size, space, 0, 0, weight, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_TT_PRECIS,
+//								CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, FF_DONTCARE | DEFAULT_PITCH, style.c_str());
+//		if (pen.hfont == NULL)
+//			return false;
 
 		// 创建显示列表
 		pen.list_id = glGenLists(96);
 		if (pen.list_id == 0)
 			return false;
-		HFONT old;
-		HDC hdc = g_p_system->getDC();
-		old = (HFONT)SelectObject(hdc, pen.hfont);
-		wglUseFontBitmaps(hdc, 32, 96, pen.list_id);
-		SelectObject(hdc, old);
+//		HFONT old;
+//		HDC hdc = g_p_system->getDC();
+//		old = (HFONT)SelectObject(hdc, pen.hfont);
+//		wglUseFontBitmaps(hdc, 32, 96, pen.list_id);
+//		SelectObject(hdc, old);
 
 		if (m_pens.find(name) != m_pens.end())
 			return false;
@@ -97,21 +97,21 @@ namespace air
 	unsigned int CPenManager::get_str_width(string name, string msg)
 	{
 		PenMap::iterator it = m_pens.find(name);
-		if (it == m_pens.end())
+		if (it == m_pens.end());
 			return 0;
-        HDC hdc = g_p_system->getDC();
-		HFONT old = (HFONT)SelectObject(hdc, it->second.hfont);
-		SIZE size;
-		GetTextExtentPoint32A(hdc, msg.c_str(), (int)msg.size(), &size);
-		SelectObject(hdc, old);
-		return size.cx;
+//        HDC hdc = g_p_system->getDC();
+//		HFONT old = (HFONT)SelectObject(hdc, it->second.hfont);
+//		SIZE size;
+//		GetTextExtentPoint32A(hdc, msg.c_str(), (int)msg.size(), &size);
+//		SelectObject(hdc, old);
+//		return size.cx;
 	}
 	void CPenManager::_free()
 	{
 		for (PenMap::iterator it = m_pens.begin(); it != m_pens.end(); it++)
 		{
 			glDeleteLists(it->second.list_id, 96);
-			DeleteObject(it->second.hfont);
+//			DeleteObject(it->second.hfont);
 		}
 		m_pens.clear();
 	}

@@ -26,7 +26,8 @@ namespace air
 	void CScript::call(const char* p_fun_name)
 	{
 		char name[1024];
-		sprintf(name, p_fun_name);
+		sprintf(name,"%s",p_fun_name);
+        
 
 		lua_getglobal(m_L, name);
 		if (lua_isnil(m_L, -1) == 1)	// 检查方法是否为 nil
@@ -155,7 +156,7 @@ namespace air
 		unsigned char g = (unsigned char)lua_tonumber(L, 5);
 		unsigned char b = (unsigned char)lua_tonumber(L, 6);
 		const char* p_str = lua_tostring(L, 7);
-		g_p_pen_mgr->print(string(p_name), x, y, color(r, g, b), p_str);
+		//g_p_pen_mgr->print(string(p_name), x, y, color(r, g, b), p_str);
 		return 0;
 	}
 	static int L_key_down_by_name(lua_State* L)
@@ -179,31 +180,31 @@ namespace air
 	static int L_play_music(lua_State* L)
 	{
 		const char* p_name = lua_tostring(L, 1);
-		g_p_music->play(string(p_name));
+		//g_p_music->play(string(p_name));
 		return 0;
 	}
 	static int L_pause_music(lua_State* L)
 	{
 		const char* p_name = lua_tostring(L, 1);
-		g_p_music->pause(string(p_name));
+		//g_p_music->pause(string(p_name));
 		return 0;
 	}
 	static int L_proceed_music(lua_State* L)
 	{
 		const char* p_name = lua_tostring(L, 1);
-		g_p_music->proceed(string(p_name));
+		//g_p_music->proceed(string(p_name));
 		return 0;
 	}
 	static int L_debug(lua_State* L)
 	{
 		const char* p = lua_tostring(L, 1);
-		printf(p);
+		printf("%s",p);
 		printf("\n");
 		return 0;
 	}
 	static int L_quit(lua_State* L)
 	{
-		PostQuitMessage(0);
+		//PostQuitMessage(0);
 		return 0;
 	}
 	// lua api ////////////////////////////////////////////////////////////////////////
@@ -234,7 +235,7 @@ namespace air
         va_list args;
         va_start(args, p_msg);
         vsprintf(buf, p_msg, args);
-        MessageBoxA(NULL, buf, "err", NULL);
+        //MessageBoxA(NULL, buf, "err", NULL);
         va_end(args);
 	}
 }

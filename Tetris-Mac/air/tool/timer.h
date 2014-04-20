@@ -1,13 +1,16 @@
 #ifndef timer_h_
 #define timer_h_
 
+#include <string>
+#include <cstring>
+
 namespace air 
 {
 	class CTimer
 	{
 	private:
 		double	m_sec_per_count;	// CPU 执行 1 Count 耗费的秒数
-		__int64	m_start_tick;		// 计时器启动时刻
+		uint64_t	m_start_tick;		// 计时器启动时刻
 		bool	m_pause;			// 计时器暂停标志
 
 	public:

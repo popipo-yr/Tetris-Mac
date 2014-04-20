@@ -1,6 +1,6 @@
 #include "music.h"
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+//#include <windows.h>
 #include <fstream>
 #include <sstream>
 using std::ifstream;
@@ -130,6 +130,6 @@ namespace air
 			return;
 		char buf[128];
         sprintf(buf, "FMOD error！FMOD_RESULT:%s", FMOD_ErrorString(r));
-        MessageBoxA(NULL, buf, "err", NULL);
+        //MessageBoxA(NULL, buf, "err", NULL);
 	}
 }

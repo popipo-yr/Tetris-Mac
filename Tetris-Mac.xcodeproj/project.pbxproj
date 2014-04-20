@@ -7,9 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A054ED2190367A300B9953B /* air in Resources */ = {isa = PBXBuildFile; fileRef = 1A054ED1190367A300B9953B /* air */; };
+		1A054F16190372AA00B9953B /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054ED8190372AA00B9953B /* image.cpp */; };
+		1A054F19190372AA00B9953B /* surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EDF190372AA00B9953B /* surface.cpp */; };
+		1A054F1A190372AA00B9953B /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EE1190372AA00B9953B /* texture.cpp */; };
+		1A054F1B190372AA00B9953B /* gui_button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EE5190372AA00B9953B /* gui_button.cpp */; };
+		1A054F1D190372AA00B9953B /* gui_object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EE7190372AA00B9953B /* gui_object.cpp */; };
+		1A054F1E190372AA00B9953B /* gui_static.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EE8190372AA00B9953B /* gui_static.cpp */; };
+		1A054F1F190372AA00B9953B /* gui_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EE9190372AA00B9953B /* gui_system.cpp */; };
+		1A054F24190372AA00B9953B /* phy2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054EFC190372AA00B9953B /* phy2d.cpp */; };
+		1A054F27190372AA00B9953B /* script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F07190372AA00B9953B /* script.cpp */; };
+		1A054F28190372AA00B9953B /* system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F0A190372AA00B9953B /* system.cpp */; };
+		1A054F29190372AA00B9953B /* ini.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F0E190372AA00B9953B /* ini.cpp */; };
+		1A054F2A190372AA00B9953B /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F10190372AA00B9953B /* map.cpp */; };
+		1A054F2B190372AA00B9953B /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F13190372AA00B9953B /* timer.cpp */; };
 		1A4F41081902B5C0002DD6EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41061902B5C0002DD6EE /* InfoPlist.strings */; };
-		1A4F410A1902B5C0002DD6EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F41091902B5C0002DD6EE /* main.m */; };
+		1A4F410A1902B5C0002DD6EE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F41091902B5C0002DD6EE /* main.cpp */; };
 		1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F410C1902B5C0002DD6EE /* Credits.rtf */; };
 		1A4F41161902B5C0002DD6EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41151902B5C0002DD6EE /* Images.xcassets */; };
 		1A4F411D1902B5C0002DD6EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F411C1902B5C0002DD6EE /* XCTest.framework */; };
@@ -20,6 +32,15 @@
 		1A4F41341902B605002DD6EE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41331902B605002DD6EE /* OpenGL.framework */; };
 		1A4F41381902B73B002DD6EE /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41371902B73B002DD6EE /* res */; };
 		1A4F413A1902B936002DD6EE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41391902B936002DD6EE /* libstdc++.dylib */; };
+		1A7E10941903917800AD6FA2 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E10921903917800AD6FA2 /* input.cpp */; };
+		1A7E109619039D2D00AD6FA2 /* gui_edit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E109519039D2D00AD6FA2 /* gui_edit.cpp */; };
+		1A7E109B19039DDC00AD6FA2 /* pen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E109719039DDC00AD6FA2 /* pen.cpp */; };
+		1A7E109C19039DDC00AD6FA2 /* sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E109919039DDC00AD6FA2 /* sprite.cpp */; };
+		1A7E109F19039F7400AD6FA2 /* liblua5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7E109D19039F7400AD6FA2 /* liblua5.1.a */; };
+		1A7E10A41903A1AE00AD6FA2 /* liblua5.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7E10A31903A1AE00AD6FA2 /* liblua5.1.dylib */; };
+		1A7E10A51903A41E00AD6FA2 /* liblua5.1.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 1A7E10A31903A1AE00AD6FA2 /* liblua5.1.dylib */; };
+		1A7E10AA1903B84000AD6FA2 /* liblua5.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A7E10A31903A1AE00AD6FA2 /* liblua5.1.dylib */; };
+		1A7E10AC1903CA7800AD6FA2 /* tetris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E10AB1903CA7800AD6FA2 /* tetris.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +53,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A7E10A81903B82600AD6FA2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A7E10AA1903B84000AD6FA2 /* liblua5.1.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1A054ED1190367A300B9953B /* air */ = {isa = PBXFileReference; lastKnownFileType = folder; path = air; sourceTree = "<group>"; };
+		1A054ED4190372AA00B9953B /* air.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = air.h; sourceTree = "<group>"; };
+		1A054ED8190372AA00B9953B /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
+		1A054ED9190372AA00B9953B /* image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = image.h; sourceTree = "<group>"; };
+		1A054EDA190372AA00B9953B /* openGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openGL.h; sourceTree = "<group>"; };
+		1A054EDF190372AA00B9953B /* surface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface.cpp; sourceTree = "<group>"; };
+		1A054EE0190372AA00B9953B /* surface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surface.h; sourceTree = "<group>"; };
+		1A054EE1190372AA00B9953B /* texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texture.cpp; sourceTree = "<group>"; };
+		1A054EE2190372AA00B9953B /* texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = texture.h; sourceTree = "<group>"; };
+		1A054EE4190372AA00B9953B /* gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
+		1A054EE5190372AA00B9953B /* gui_button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui_button.cpp; sourceTree = "<group>"; };
+		1A054EE7190372AA00B9953B /* gui_object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui_object.cpp; sourceTree = "<group>"; };
+		1A054EE8190372AA00B9953B /* gui_static.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui_static.cpp; sourceTree = "<group>"; };
+		1A054EE9190372AA00B9953B /* gui_system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui_system.cpp; sourceTree = "<group>"; };
+		1A054EEE190372AA00B9953B /* math2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math2d.h; sourceTree = "<group>"; };
+		1A054EFC190372AA00B9953B /* phy2d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = phy2d.cpp; sourceTree = "<group>"; };
+		1A054EFD190372AA00B9953B /* phy2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phy2d.h; sourceTree = "<group>"; };
+		1A054F00190372AA00B9953B /* lauxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lauxlib.h; sourceTree = "<group>"; };
+		1A054F01190372AA00B9953B /* lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua.h; sourceTree = "<group>"; };
+		1A054F02190372AA00B9953B /* lua.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lua.hpp; sourceTree = "<group>"; };
+		1A054F05190372AA00B9953B /* luaconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaconf.h; sourceTree = "<group>"; };
+		1A054F06190372AA00B9953B /* lualib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lualib.h; sourceTree = "<group>"; };
+		1A054F07190372AA00B9953B /* script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = script.cpp; sourceTree = "<group>"; };
+		1A054F08190372AA00B9953B /* script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = script.h; sourceTree = "<group>"; };
+		1A054F0A190372AA00B9953B /* system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system.cpp; sourceTree = "<group>"; };
+		1A054F0B190372AA00B9953B /* system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = system.h; sourceTree = "<group>"; };
+		1A054F0D190372AA00B9953B /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		1A054F0E190372AA00B9953B /* ini.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ini.cpp; sourceTree = "<group>"; };
+		1A054F0F190372AA00B9953B /* ini.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ini.h; sourceTree = "<group>"; };
+		1A054F10190372AA00B9953B /* map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
+		1A054F11190372AA00B9953B /* map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = map.h; sourceTree = "<group>"; };
+		1A054F12190372AA00B9953B /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
+		1A054F13190372AA00B9953B /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		1A054F14190372AA00B9953B /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		1A4F40FA1902B5C0002DD6EE /* Tetris-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tetris-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F40FD1902B5C0002DD6EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A4F41001902B5C0002DD6EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -41,7 +107,7 @@
 		1A4F41021902B5C0002DD6EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1A4F41051902B5C0002DD6EE /* Tetris-Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tetris-Mac-Info.plist"; sourceTree = "<group>"; };
 		1A4F41071902B5C0002DD6EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1A4F41091902B5C0002DD6EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A4F41091902B5C0002DD6EE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1A4F410B1902B5C0002DD6EE /* Tetris-Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tetris-Mac-Prefix.pch"; sourceTree = "<group>"; };
 		1A4F410D1902B5C0002DD6EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		1A4F41151902B5C0002DD6EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -54,6 +120,16 @@
 		1A4F41331902B605002DD6EE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1A4F41371902B73B002DD6EE /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		1A4F41391902B936002DD6EE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		1A7E10921903917800AD6FA2 /* input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = input.cpp; sourceTree = "<group>"; };
+		1A7E10931903917800AD6FA2 /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = input.h; sourceTree = "<group>"; };
+		1A7E109519039D2D00AD6FA2 /* gui_edit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gui_edit.cpp; sourceTree = "<group>"; };
+		1A7E109719039DDC00AD6FA2 /* pen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pen.cpp; sourceTree = "<group>"; };
+		1A7E109819039DDC00AD6FA2 /* pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pen.h; sourceTree = "<group>"; };
+		1A7E109919039DDC00AD6FA2 /* sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sprite.cpp; sourceTree = "<group>"; };
+		1A7E109A19039DDC00AD6FA2 /* sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sprite.h; sourceTree = "<group>"; };
+		1A7E109D19039F7400AD6FA2 /* liblua5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblua5.1.a; sourceTree = "<group>"; };
+		1A7E10A31903A1AE00AD6FA2 /* liblua5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = liblua5.1.dylib; sourceTree = "<group>"; };
+		1A7E10AB1903CA7800AD6FA2 /* tetris.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tetris.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +138,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4F413A1902B936002DD6EE /* libstdc++.dylib in Frameworks */,
+				1A7E10A41903A1AE00AD6FA2 /* liblua5.1.dylib in Frameworks */,
 				1A4F41341902B605002DD6EE /* OpenGL.framework in Frameworks */,
 				1A4F41321902B5FF002DD6EE /* GLUT.framework in Frameworks */,
+				1A7E109F19039F7400AD6FA2 /* liblua5.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +157,127 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A054ED3190372AA00B9953B /* air */ = {
+			isa = PBXGroup;
+			children = (
+				1A054ED4190372AA00B9953B /* air.h */,
+				1A7E10911903917800AD6FA2 /* input */,
+				1A054ED5190372AA00B9953B /* demos */,
+				1A054ED7190372AA00B9953B /* graphics */,
+				1A054EE3190372AA00B9953B /* gui */,
+				1A054EED190372AA00B9953B /* math */,
+				1A054EFB190372AA00B9953B /* physics */,
+				1A054EFE190372AA00B9953B /* script */,
+				1A054F09190372AA00B9953B /* system */,
+				1A054F0C190372AA00B9953B /* tool */,
+			);
+			path = air;
+			sourceTree = "<group>";
+		};
+		1A054ED5190372AA00B9953B /* demos */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E10AB1903CA7800AD6FA2 /* tetris.cpp */,
+			);
+			path = demos;
+			sourceTree = "<group>";
+		};
+		1A054ED7190372AA00B9953B /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E109719039DDC00AD6FA2 /* pen.cpp */,
+				1A7E109819039DDC00AD6FA2 /* pen.h */,
+				1A7E109919039DDC00AD6FA2 /* sprite.cpp */,
+				1A7E109A19039DDC00AD6FA2 /* sprite.h */,
+				1A054ED8190372AA00B9953B /* image.cpp */,
+				1A054ED9190372AA00B9953B /* image.h */,
+				1A054EDA190372AA00B9953B /* openGL.h */,
+				1A054EDF190372AA00B9953B /* surface.cpp */,
+				1A054EE0190372AA00B9953B /* surface.h */,
+				1A054EE1190372AA00B9953B /* texture.cpp */,
+				1A054EE2190372AA00B9953B /* texture.h */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		1A054EE3190372AA00B9953B /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				1A054EE4190372AA00B9953B /* gui.h */,
+				1A7E109519039D2D00AD6FA2 /* gui_edit.cpp */,
+				1A054EE5190372AA00B9953B /* gui_button.cpp */,
+				1A054EE7190372AA00B9953B /* gui_object.cpp */,
+				1A054EE8190372AA00B9953B /* gui_static.cpp */,
+				1A054EE9190372AA00B9953B /* gui_system.cpp */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
+		1A054EED190372AA00B9953B /* math */ = {
+			isa = PBXGroup;
+			children = (
+				1A054EEE190372AA00B9953B /* math2d.h */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		1A054EFB190372AA00B9953B /* physics */ = {
+			isa = PBXGroup;
+			children = (
+				1A054EFC190372AA00B9953B /* phy2d.cpp */,
+				1A054EFD190372AA00B9953B /* phy2d.h */,
+			);
+			path = physics;
+			sourceTree = "<group>";
+		};
+		1A054EFE190372AA00B9953B /* script */ = {
+			isa = PBXGroup;
+			children = (
+				1A054EFF190372AA00B9953B /* lua */,
+				1A054F07190372AA00B9953B /* script.cpp */,
+				1A054F08190372AA00B9953B /* script.h */,
+			);
+			path = script;
+			sourceTree = "<group>";
+		};
+		1A054EFF190372AA00B9953B /* lua */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E109D19039F7400AD6FA2 /* liblua5.1.a */,
+				1A7E10A31903A1AE00AD6FA2 /* liblua5.1.dylib */,
+				1A054F00190372AA00B9953B /* lauxlib.h */,
+				1A054F01190372AA00B9953B /* lua.h */,
+				1A054F02190372AA00B9953B /* lua.hpp */,
+				1A054F05190372AA00B9953B /* luaconf.h */,
+				1A054F06190372AA00B9953B /* lualib.h */,
+			);
+			path = lua;
+			sourceTree = "<group>";
+		};
+		1A054F09190372AA00B9953B /* system */ = {
+			isa = PBXGroup;
+			children = (
+				1A054F0A190372AA00B9953B /* system.cpp */,
+				1A054F0B190372AA00B9953B /* system.h */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		1A054F0C190372AA00B9953B /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				1A054F0D190372AA00B9953B /* common.h */,
+				1A054F0E190372AA00B9953B /* ini.cpp */,
+				1A054F0F190372AA00B9953B /* ini.h */,
+				1A054F10190372AA00B9953B /* map.cpp */,
+				1A054F11190372AA00B9953B /* map.h */,
+				1A054F12190372AA00B9953B /* single.h */,
+				1A054F13190372AA00B9953B /* timer.cpp */,
+				1A054F14190372AA00B9953B /* timer.h */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		1A4F40F11902B5C0002DD6EE = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +323,7 @@
 		1A4F41031902B5C0002DD6EE /* Tetris-Mac */ = {
 			isa = PBXGroup;
 			children = (
-				1A054ED1190367A300B9953B /* air */,
+				1A054ED3190372AA00B9953B /* air */,
 				1A4F41371902B73B002DD6EE /* res */,
 				1A4F41151902B5C0002DD6EE /* Images.xcassets */,
 				1A4F41041902B5C0002DD6EE /* Supporting Files */,
@@ -137,7 +336,7 @@
 			children = (
 				1A4F41051902B5C0002DD6EE /* Tetris-Mac-Info.plist */,
 				1A4F41061902B5C0002DD6EE /* InfoPlist.strings */,
-				1A4F41091902B5C0002DD6EE /* main.m */,
+				1A4F41091902B5C0002DD6EE /* main.cpp */,
 				1A4F410B1902B5C0002DD6EE /* Tetris-Mac-Prefix.pch */,
 				1A4F410C1902B5C0002DD6EE /* Credits.rtf */,
 			);
@@ -162,6 +361,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1A7E10911903917800AD6FA2 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				1A7E10921903917800AD6FA2 /* input.cpp */,
+				1A7E10931903917800AD6FA2 /* input.h */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +380,7 @@
 				1A4F40F61902B5C0002DD6EE /* Sources */,
 				1A4F40F71902B5C0002DD6EE /* Frameworks */,
 				1A4F40F81902B5C0002DD6EE /* Resources */,
+				1A7E10A81903B82600AD6FA2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -238,11 +447,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7E10A51903A41E00AD6FA2 /* liblua5.1.dylib in Resources */,
 				1A4F41081902B5C0002DD6EE /* InfoPlist.strings in Resources */,
 				1A4F41161902B5C0002DD6EE /* Images.xcassets in Resources */,
 				1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */,
 				1A4F41381902B73B002DD6EE /* res in Resources */,
-				1A054ED2190367A300B9953B /* air in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +470,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4F410A1902B5C0002DD6EE /* main.m in Sources */,
+				1A054F29190372AA00B9953B /* ini.cpp in Sources */,
+				1A054F2A190372AA00B9953B /* map.cpp in Sources */,
+				1A7E109B19039DDC00AD6FA2 /* pen.cpp in Sources */,
+				1A7E10941903917800AD6FA2 /* input.cpp in Sources */,
+				1A054F27190372AA00B9953B /* script.cpp in Sources */,
+				1A054F28190372AA00B9953B /* system.cpp in Sources */,
+				1A4F410A1902B5C0002DD6EE /* main.cpp in Sources */,
+				1A054F24190372AA00B9953B /* phy2d.cpp in Sources */,
+				1A7E109C19039DDC00AD6FA2 /* sprite.cpp in Sources */,
+				1A7E109619039D2D00AD6FA2 /* gui_edit.cpp in Sources */,
+				1A054F16190372AA00B9953B /* image.cpp in Sources */,
+				1A054F1E190372AA00B9953B /* gui_static.cpp in Sources */,
+				1A054F1F190372AA00B9953B /* gui_system.cpp in Sources */,
+				1A7E10AC1903CA7800AD6FA2 /* tetris.cpp in Sources */,
+				1A054F2B190372AA00B9953B /* timer.cpp in Sources */,
+				1A054F1A190372AA00B9953B /* texture.cpp in Sources */,
+				1A054F19190372AA00B9953B /* surface.cpp in Sources */,
+				1A054F1D190372AA00B9953B /* gui_object.cpp in Sources */,
+				1A054F1B190372AA00B9953B /* gui_button.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,9 +613,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris-Mac/Tetris-Mac-Prefix.pch";
 				INFOPLIST_FILE = "Tetris-Mac/Tetris-Mac-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/liblua5.1.dylib";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/popipo/Desktop/Tetris-Mac/Tetris-Mac/air/music/fmod",
+					"/Users/popipo/Desktop/Tetris-Mac/Tetris-Mac/air/script/lua",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,9 +636,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris-Mac/Tetris-Mac-Prefix.pch";
 				INFOPLIST_FILE = "Tetris-Mac/Tetris-Mac-Info.plist";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/liblua5.1.dylib";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/popipo/Desktop/Tetris-Mac/Tetris-Mac/air/music/fmod",
+					"/Users/popipo/Desktop/Tetris-Mac/Tetris-Mac/air/script/lua",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

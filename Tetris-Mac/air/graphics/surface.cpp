@@ -6,13 +6,15 @@
 namespace air
 {
 	COpenGL* g_p_openGL = NULL;
-	COpenGL::COpenGL(HDC hdc, int width, int height)
+//	COpenGL::COpenGL(HDC hdc, int width, int height)
+    COpenGL::COpenGL(int hdc, int width, int height)
 	{
-		m_hrc = NULL;
-		if (!(m_hrc = wglCreateContext(hdc)))
-			PostQuitMessage(0);
-		if (!wglMakeCurrent(hdc, m_hrc))
-			PostQuitMessage(0);
+//		m_hrc = NULL;
+//		if (!(m_hrc = wglCreateContext(hdc)))
+//			PostQuitMessage(0);
+//		if (!wglMakeCurrent(hdc, m_hrc))
+//			PostQuitMessage(0);
+        
 		m_width = width;
 		m_height = height;
 		m_mode = _3D;
@@ -20,14 +22,14 @@ namespace air
 	}
 	COpenGL::~COpenGL()
 	{
-		if (m_hrc)
-		{
-			if (!wglMakeCurrent(NULL, NULL))
-				MessageBoxA(NULL, "OpenGL wglMakeCurrent() fail...", "error", NULL);
-			if (!wglDeleteContext(m_hrc))
-				MessageBoxA(NULL, "OpenGL wglDeleteContext() fail...", "error", NULL);
-		}
-		m_hrc = NULL;
+//		if (m_hrc)
+//		{
+//			if (!wglMakeCurrent(NULL, NULL))
+//				MessageBoxA(NULL, "OpenGL wglMakeCurrent() fail...", "error", NULL);
+//			if (!wglDeleteContext(m_hrc))
+//				MessageBoxA(NULL, "OpenGL wglDeleteContext() fail...", "error", NULL);
+//		}
+//		m_hrc = NULL;
 	}
 	void COpenGL::resize(int new_width, int new_height)
 	{
@@ -51,8 +53,9 @@ namespace air
 			return;
 		char buff[1024];
 		sprintf(buff, "OpenGL frame() catch an error! error code:%d", err);
-		MessageBoxA(NULL, buff, "error", NULL);
-		PostQuitMessage(0);
+        printf("%s\n",buff);
+		//MessageBoxA(NULL, buff, "error", NULL);
+		//PostQuitMessage(0);
 	}
 	void COpenGL::twoD()
 	{
@@ -72,9 +75,9 @@ namespace air
 		glLoadIdentity();
 		m_mode = _3D;
 	}
-	void COpenGL::swap_buff(HDC hdc) const
+	void COpenGL::swap_buff(int hdc) const
 	{
-        SwapBuffers(hdc);
+        glutSwapBuffers();
 	}
 	COpenGL::Mode COpenGL::get_mode() const
 	{

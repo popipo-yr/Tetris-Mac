@@ -90,8 +90,8 @@ namespace air
 		    k = g_p_input->get_key_up();
 		    if (k != 0 && (*it)->is_focus())
                 e.type = CGuiObject::KEY_UP;
-		    if (KEY_DOWN(VK_SHIFT))
-                e.flags |= CGuiObject::SHIFT;
+//		    if (KEY_DOWN(VK_SHIFT))
+//                e.flags |= CGuiObject::SHIFT;
             e.key = k;
 		    if (e.type != CGuiObject::NIL && (*it)->on_msg(e))
                 return (*it)->get_id();

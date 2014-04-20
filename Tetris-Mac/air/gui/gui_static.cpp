@@ -11,7 +11,8 @@ namespace air
 	void CLabel::draw()
 	{
 		if (!m_pen.empty() && !m_text.empty())
-			g_p_pen_mgr->print(m_pen, m_x, m_y, m_text_color, m_text.c_str());
+			//g_p_pen_mgr->print(m_pen, m_x, m_y, m_text_color, m_text.c_str())
+            ;
 	}
 	bool CLabel::on_msg(const msg& e)   { return false; }
 	bool CLabel::is_over(float x, float y)	{ return false; }

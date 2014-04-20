@@ -1,8 +1,26 @@
 #include "input.h"
+
+
+
+
+
 namespace air
 {
+    
+    void processNormalKeys(unsigned char key, int x, int y) {
+        
+            g_p_input->setKeyDown(key);
+        
+    }
+    
+    void processSpecialKeys(int key, int x, int y) {
+        
+        g_p_input->setKeyDown(key);
+    }
+
+    
 	CInput* g_p_input = NULL;
-	CInput::CInput(HWND wnd)
+	CInput::CInput(int wnd)
 	{
 		m_wnd = wnd;
 		m_x = m_y = m_wheel = 0.0f;
@@ -11,6 +29,10 @@ namespace air
 		memset(&m_key, 0, sizeof(m_key));
 		memset(&m_last_key, 0, sizeof(m_last_key));
 		_bulid_key_name_table();
+        
+        // here are the new entries
+        glutKeyboardFunc(processNormalKeys);
+        glutSpecialFunc(processSpecialKeys);
 	}
 	CInput::~CInput()
 	{
@@ -19,20 +41,24 @@ namespace air
 	{
 		// 更新键盘状态
 		memcpy(m_last_key, m_key, sizeof(m_last_key));
-		GetKeyboardState(m_key);
+        
+        
+		//GetKeyboardState(m_key);
+        memset(m_key, 0, sizeof(m_key));
+
 
 		// 更新鼠标状态和位置
 		memcpy(&m_last_mouse, &m_mouse, sizeof(m_last_mouse));
-		m_mouse[LEFT_BUTTON] = m_key[VK_LBUTTON] & 0x80;
-		m_mouse[RIGHT_BUTTON] = m_key[VK_RBUTTON] & 0x80;
-		m_mouse[MIDDLE_BUTTON] = m_key[VK_MBUTTON] & 0x80;
-		POINT p;
-		GetCursorPos(&p);
-		ScreenToClient(m_wnd, &p);
-		m_x = (float)p.x;
-		RECT rc;
-		GetClientRect(m_wnd, &rc);
-		m_y = (float)((rc.bottom - rc.top) - p.y);	// 转换为原点为左下角的坐标系
+//		m_mouse[LEFT_BUTTON] = m_key[VK_LBUTTON] & 0x80;
+//		m_mouse[RIGHT_BUTTON] = m_key[VK_RBUTTON] & 0x80;
+//		m_mouse[MIDDLE_BUTTON] = m_key[VK_MBUTTON] & 0x80;
+//		POINT p;
+//		GetCursorPos(&p);
+//		ScreenToClient(m_wnd, &p);
+//		m_x = (float)p.x;
+//		RECT rc;
+//		GetClientRect(m_wnd, &rc);
+//		m_y = (float)((rc.bottom - rc.top) - p.y);	// 转换为原点为左下角的坐标系
 
 		// how to get wheel's state?
 	}
@@ -100,14 +126,22 @@ namespace air
 	{
 		m_name_to_key["enter"] = VK_RETURN;
 		m_name_to_key["space"] = VK_SPACE;
-		m_name_to_key["up"] = VK_UP;
-		m_name_to_key["down"] = VK_DOWN;
-		m_name_to_key["left"] = VK_LEFT;
-		m_name_to_key["right"] = VK_RIGHT;
+        
+		m_name_to_key["up"] = GLUT_KEY_UP;
+		m_name_to_key["down"] = GLUT_KEY_DOWN;
+		m_name_to_key["left"] = GLUT_KEY_LEFT;
+		m_name_to_key["right"] = GLUT_KEY_RIGHT;
 
 		// copy from winuser.h
 		// VK_0 - VK_9 are the same as ASCII '0' - '9' (0x30 - 0x39)
 		// 0x40 : unassigned
 		// VK_A - VK_Z are the same as ASCII 'A' - 'Z' (0x41 - 0x5A)
 	}
+    
+    void CInput::setKeyDown(unsigned int key){
+        
+        m_key[key] = 0xFF;
+    }
+
+    
 }

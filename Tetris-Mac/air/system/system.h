@@ -2,7 +2,8 @@
 #define system_h_
 
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+//#include <windows.h>
+#include <GLUT/GLUT.h>
 #include <string>
 using std::string;
 
@@ -13,8 +14,8 @@ namespace air
 	class CSystem
 	{
 	private:
-		HWND m_hwnd;
-		HDC m_hdc;
+		int m_hwnd;
+		int m_hdc;
 		bool m_paused;
 		callback m_p_init_func;
 		callback m_p_frame_func;
@@ -22,7 +23,7 @@ namespace air
 		callback m_p_render_func;
 		unsigned int m_fixed_delta;
 		unsigned int m_win_width, m_win_height;
-		string m_title;
+        std::string m_title;
 	public:
 	    // 构造窗口
 	    // w，h：宽，高
@@ -36,10 +37,12 @@ namespace air
 		void set_callback(Func option, callback p_func);
         // 主循环
 		void run();
+        
+        void loop();
         // 处理标准windows消息
-		LRESULT msg_proc(UINT msg, WPARAM wparam, LPARAM lparam);
+		//LRESULT msg_proc(UINT msg, WPARAM wparam, LPARAM lparam);
         // 得到DC
-		HDC getDC() const;
+		//HDC getDC() const;
 	public:
 	    void _create_window();
 	    void _release();

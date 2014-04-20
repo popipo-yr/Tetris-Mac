@@ -3,6 +3,19 @@
 #include "../graphics/surface.h"
 #include "../input/input.h"
 #include <stdio.h>
+
+#ifndef VK_RETURN
+#define VK_RETURN 0x0D
+#endif
+
+#ifndef VK_SPACE
+#define VK_SPACE 0x20
+#endif
+
+#ifndef VK_BACK
+#define VK_BACK 0x08
+#endif
+
 namespace air
 {
     CEdit::CEdit(unsigned int id, float x, float y, float width, float height, string pen) : CGuiObject(id, x, y, width, height)
@@ -79,7 +92,7 @@ namespace air
                     return true;
                 }
             }
-            if (e.key == VK_BACK && !m_result.empty())
+            if (e.key ==  VK_BACK && !m_result.empty())
             {
                 m_result = m_result.erase(m_result.size() - 1, 1);
                 return true;

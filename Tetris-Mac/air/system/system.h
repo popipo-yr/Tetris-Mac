@@ -5,6 +5,7 @@
 //#include <windows.h>
 #include <GLUT/GLUT.h>
 #include <string>
+#include <sys/time.h>
 using std::string;
 
 namespace air
@@ -24,6 +25,8 @@ namespace air
 		unsigned int m_fixed_delta;
 		unsigned int m_win_width, m_win_height;
         std::string m_title;
+        
+        struct timeval m_lastTime;
 	public:
 	    // 构造窗口
 	    // w，h：宽，高

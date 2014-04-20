@@ -50,7 +50,7 @@ void loop(int x){
 
     
     g_p_system->loop();
-    glutTimerFunc(1*1000, loop , 1);
+    glutTimerFunc(50, loop , 1);
 }
 
 void SetupRc()
@@ -62,6 +62,8 @@ void SetupRc()
 int main(int argc, char ** argv)
 {
     glutInit(&argc, argv);
+    
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
 	g_p_system = new CSystem(320, 480, "AirGE by qq_d_y --- tetris");
 	g_p_system->set_callback(CSystem::INIT, init);
 	g_p_system->set_callback(CSystem::DRAW, draw);

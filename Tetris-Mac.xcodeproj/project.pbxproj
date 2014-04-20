@@ -381,6 +381,7 @@
 				1A4F40F71902B5C0002DD6EE /* Frameworks */,
 				1A4F40F81902B5C0002DD6EE /* Resources */,
 				1A7E10A81903B82600AD6FA2 /* CopyFiles */,
+				1AA55CFB1903E99800B5C502 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -464,6 +465,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AA55CFB1903E99800B5C502 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "touch \"$SRCROOT\"/Tetris-Mac/res";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A4F40F61902B5C0002DD6EE /* Sources */ = {
@@ -627,6 +644,7 @@
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -650,6 +668,7 @@
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

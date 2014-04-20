@@ -64,6 +64,7 @@ namespace air
 	}
 	bool CInput::key_down(unsigned int key) const
 	{
+        //return true;
 		return (m_key[key] & 0x80) != 0;
 	}
 	bool CInput::key_up(unsigned int key) const

@@ -35,11 +35,13 @@ function main_init()
 end
 
 function main_update()
+
+	state = g.GAME
 	if state == g.GAME then
 		if air.key_up("down") then
 			g.update_interval = 0.2
 		elseif air.key_down("down") then
-			g.update_interval = 0.05
+			g.update_interval = 0.005
 		elseif air.key_up("left") or air.key_up("right") or air.key_up("up") then
 			g.key_flag = 1
 		end
@@ -67,9 +69,6 @@ function main_update()
 			timer_reset()
 		end
 	elseif state == g.MENU then
-		state = g.GAME
-		face = 1
-		return
 		if g.key_flag == 1 then
 			if input_timer_pass() < 0.3 then
 				return

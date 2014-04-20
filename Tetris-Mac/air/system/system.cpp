@@ -5,6 +5,7 @@
 #include "../input/input.h"
 #include "../script/script.h"
 #include "../music/music.h"
+#include <unistd.h>
 //#include <mmsystem.h>
 
 //LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
@@ -59,7 +60,10 @@ namespace air
 		// 主循环
 		//MSG msg;
 		//unsigned long last = timeGetTime();
-        unsigned long last = time(0);
+        unsigned long last = 0;
+        
+        gettimeofday(&m_lastTime,NULL);
+        
 		for (;;)
 		{
 //			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
@@ -91,13 +95,17 @@ namespace air
                         g_p_openGL->threeD();
                         if (m_p_render_func != NULL)
                             m_p_render_func();
-                        //g_p_openGL->swap_buff(m_hdc);
+                        g_p_openGL->swap_buff(m_hdc);
+                        
+                        //g_p_input->update();
                     }
-                    else
-                    {
-                        if (dt + 5 < m_fixed_delta) ;
-                            //Sleep(1);
-                    }
+//                    else
+//                    {
+//                        if (dt + 5 < m_fixed_delta) ;
+//                        
+//                        sleep(1);
+//                        //Sleep(1);
+//                    }
                 }
                 else
                 {
@@ -110,17 +118,18 @@ namespace air
     void CSystem::loop(){
         
         
-        unsigned long last = time(0);
-        
         if (!m_paused)
         {
-//            unsigned int dt = time(0) - last;
-//            if (dt > m_fixed_delta)
-//            {
-                last = time(0);
+            struct timeval tpend;
+            unsigned long dt = tpend.tv_usec - m_lastTime.tv_usec;
+            if (dt >= m_fixed_delta)
+            {
+                gettimeofday(&m_lastTime, NULL);
+                
                 // 更新子系统
                 //g_p_music->update();
-                g_p_input->update();
+                //g_p_input->update();
+                
                 // 游戏逻辑
                 if (m_p_frame_func != NULL)
                     m_p_frame_func();
@@ -133,16 +142,18 @@ namespace air
                 if (m_p_render_func != NULL)
                     m_p_render_func();
                 g_p_openGL->swap_buff(m_hdc);
-//            }
+            
+                g_p_input->update();
+            }
 //            else
 //            {
-//                if (dt + 5 < m_fixed_delta) ;
-//                Sleep(1);
+//                if (dt + 5 < m_fixed_delta)
+//                    sleep(1);
 //            }
-//        }
-//        else
-//        {
-//            Sleep(1);
+        }
+        else
+        {
+            sleep(1);
         }
     
     }

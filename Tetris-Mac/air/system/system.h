@@ -14,8 +14,8 @@ namespace air
 	class CSystem
 	{
 	private:
-		HWND m_hwnd;
-		HDC m_hdc;
+		//HWND m_hwnd;
+		//HDC m_hdc;
 		bool m_paused;
 		callback m_p_init_func;
 		callback m_p_frame_func;
@@ -25,31 +25,4 @@ namespace air
 		unsigned int m_win_width, m_win_height;
 		string m_title;
 	public:
-	    // ¹¹Ôì´°¿Ú
-	    // w£¬h£º¿í£¬¸ß
-	    // t£º±êÌâ
-		CSystem(unsigned int w, unsigned int h, const char* t);
-		~CSystem();
-        // ÉèÖÃ»Øµ÷º¯Êý
-        // option£º	ÉèÖÃÑ¡Ïî
-        // p_func£º	»Øµ÷º¯Êý
-		enum Func { INIT, FRAME, DRAW, RENDER };
-		void set_callback(Func option, callback p_func);
-        // Ö÷Ñ­»·
-		void run();
-        // ´¦Àí±ê×¼windowsÏûÏ¢
-		LRESULT msg_proc(UINT msg, WPARAM wparam, LPARAM lparam);
-        // µÃµ½DC
-		HDC getDC() const;
-	public:
-	    void _create_window();
-	    void _release();
-	    void _err();
-	    CSystem();
-		CSystem(const CSystem&);
-		CSystem& operator=(const CSystem&);
-	};
-	extern CSystem* g_p_system;
-}
-
-#endif
+	    // é–ºå¬ªå«°

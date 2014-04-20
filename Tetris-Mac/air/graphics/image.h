@@ -9,7 +9,7 @@ namespace air
 	typedef short			s16;
 	typedef unsigned char	u8;
 	typedef char			s8;
-    // 2011-5-7   ÕâÖÖ·½Ê½½»»»Á½ÊıÊÇ´æÔÚÎÊÌâµÄ£¬¼´²»ÄÜ¶ÔÍ¬Ò»¸ö±äÁ¿Ê¹ÓÃSWAP
+    // 2011-5-7   è¿™ç§æ–¹å¼äº¤æ¢ä¸¤æ•°æ˜¯å­˜åœ¨é—®é¢˜çš„ï¼Œå³ä¸èƒ½å¯¹åŒä¸€ä¸ªå˜é‡ä½¿ç”¨SWAP
 	#define SWAP(A, B)		(A) = (A) + (B);	\
 							(B) = (A) - (B);	\
 							(A) = (A) - (B)
@@ -23,7 +23,7 @@ namespace air
 	};
 
 	//////////////////////////////////////////////////////////////////////////
-	// Ö§³Ö 24 Î»Î´Ñ¹ËõÎ»Í¼
+	// æ”¯æŒ 24 ä½æœªå‹ç¼©ä½å›¾
 	class CBmp
 	{
 	private:
@@ -32,7 +32,7 @@ namespace air
 		u32	m_w;
 		u32	m_h;
 
-		// Î»Í¼ÎÄ¼şÍ·ĞÅÏ¢
+		// ä½å›¾æ–‡ä»¶å¤´ä¿¡æ¯
 #pragma pack(1)
 		struct head
 		{
@@ -43,15 +43,15 @@ namespace air
 			u32 offset_image;
 		};
 #pragma pack()
-		// Î»Í¼ÎÄ¼şĞÅÏ¢
+		// ä½å›¾æ–‡ä»¶ä¿¡æ¯
 		struct info
 		{
 			u32 info_size;
 			u32 pixel_width;
 			u32 pixel_height;
 			u16 planes;
-			u16 bit_per_pixel;	// Î»Í¼Î»Êı
-			u32 compress;		// 0 ±íÊ¾Î´Ñ¹Ëõ
+			u16 bit_per_pixel;	// ä½å›¾ä½æ•°
+			u32 compress;		// 0 è¡¨ç¤ºæœªå‹ç¼©
 			u32 image_size;
 			u32 horizon;
 			u32 vertical;
@@ -64,20 +64,20 @@ namespace air
 		~CBmp();
 
 		/*
-			ÔØÈëÎ»Í¼
-			p_file£º	Î»Í¼ÎÄ¼ş
-			·µ»ØÖµ£º	ÔØÈë³É¹¦ / Ê§°Ü
+			è½½å…¥ä½å›¾
+			p_fileï¼š	ä½å›¾æ–‡ä»¶
+			è¿”å›å€¼ï¼š	è½½å…¥æˆåŠŸ / å¤±è´¥
 		*/
 		bool load(const char* p_file);
 
 		/*
-			½« RGB Í¼ÏñÊı¾İ×ª»»Îª RGBA
-			r£¬g£¬b£º	Í¸Ã÷É«
+			å°† RGB å›¾åƒæ•°æ®è½¬æ¢ä¸º RGBA
+			rï¼Œgï¼Œbï¼š	é€æ˜è‰²
 		*/
 		void convert_to_rgba(u8 r, u8 g, u8 b);
 
 		/*
-			µÃµ½Î»Í¼Ïà¹ØĞÅÏ¢
+			å¾—åˆ°ä½å›¾ç›¸å…³ä¿¡æ¯
 		*/
 		const u8* rgb_data() const;
 		const u8* rgba_data() const;
@@ -85,7 +85,7 @@ namespace air
 		u32 height() const;
 
 		/*
-			ÊÍ·ÅÄÚ´æ
+			é‡Šæ”¾å†…å­˜
 		*/
 		void unload();
 	private:
@@ -94,7 +94,7 @@ namespace air
 	};
 
 	//////////////////////////////////////////////////////////////////////////
-	// Ö§³Ö 32 Î»£¨´ø alpha Í¨µÀ£©Î´Ñ¹Ëõ tga
+	// æ”¯æŒ 32 ä½ï¼ˆå¸¦ alpha é€šé“ï¼‰æœªå‹ç¼© tga
 	class CTga
 	{
 	private:
@@ -102,7 +102,7 @@ namespace air
 		u32 m_h;
 		u8* m_p_rgba;	// rgb or rgba
 
-		// tga ÎÄ¼şÍ·
+		// tga æ–‡ä»¶å¤´
 #pragma pack(1)
 		struct head
 		{
@@ -124,19 +124,19 @@ namespace air
 		~CTga();
 
 		/*
-			ÔØÈëtga
-			p_file£º	Î»Í¼ÎÄ¼ş
-			·µ»ØÖµ£º	ÔØÈë³É¹¦ / Ê§°Ü
+			è½½å…¥tga
+			p_fileï¼š	ä½å›¾æ–‡ä»¶
+			è¿”å›å€¼ï¼š	è½½å…¥æˆåŠŸ / å¤±è´¥
 		*/
 		bool load(const char* p_file);
 
 		/*
-			ÊÍ·ÅÄÚ´æ
+			é‡Šæ”¾å†…å­˜
 		*/
 		void unload();
 
 		/*
-			µÃµ½Í¼ÏñÏà¹ØĞÅÏ¢
+			å¾—åˆ°å›¾åƒç›¸å…³ä¿¡æ¯
 		*/
 		const u8* data() const;
 		u32 width() const;

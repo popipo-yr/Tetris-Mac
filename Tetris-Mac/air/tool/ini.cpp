@@ -34,7 +34,7 @@ namespace air
 			string line(buff);
 
 			string::size_type pos_begin = line.find_first_not_of(" \t");
-			if (pos_begin >= line.size() || line.at(pos_begin) == '#')		// Ìø¹ý¿ÕÐÐ »ò ×¢ÊÍÐÐ
+			if (pos_begin >= line.size() || line.at(pos_begin) == '#')		// è·³è¿‡ç©ºè¡Œ æˆ– æ³¨é‡Šè¡Œ
 				continue;
 
 			if (line.at(pos_begin) == '[')

@@ -10,26 +10,26 @@ namespace air
         class CPoint
         {
         private:
-            vec2 m_position;   // Î»ÖÃ
-            vec2 m_velocity;   // ËÙ¶È
-            float m_mass;   // ÖÊÁ¿
-            float m_inv_mass;   // 1/ÖÊÁ¿
-            vec2 m_acc_force;   // ×÷ÓÃÁ¦Ö®ºÍ
+            vec2 m_position;   // ä½ç½®
+            vec2 m_velocity;   // é€Ÿåº¦
+            float m_mass;   // è´¨é‡
+            float m_inv_mass;   // 1/è´¨é‡
+            vec2 m_acc_force;   // ä½œç”¨åŠ›ä¹‹å’Œ
         public:
             CPoint();
             ~CPoint();
-            //	³õÊ¼»¯Î»ÖÃ£¬ËÙ¶È£¬ÖÊÁ¿
-            //	pos£º	Î»ÖÃ
-            //	vel£º	ËÙ¶È
-            //	mass£º	ÖÊÁ¿
+            //	åˆå§‹åŒ–ä½ç½®ï¼Œé€Ÿåº¦ï¼Œè´¨é‡
+            //	posï¼š	ä½ç½®
+            //	velï¼š	é€Ÿåº¦
+            //	massï¼š	è´¨é‡
             void init(const vec2& pos, const vec2& vel, float mass);
-            //	Ìí¼ÓÒ»¸ö×÷ÓÃÓÚÎïÌåµÄÍâÁ¦
-            //	f	ÍâÁ¦
+            //	æ·»åŠ ä¸€ä¸ªä½œç”¨äºç‰©ä½“çš„å¤–åŠ›
+            //	f	å¤–åŠ›
             void add_force(const vec2& f);
-            //	¸üĞÂ
-            //	dt£º  ¿ØÖÆÏµÊı
+            //	æ›´æ–°
+            //	dtï¼š  æ§åˆ¶ç³»æ•°
             void run(float dt);
-            //	·ÃÎÊÆ÷£¬ÉèÖÃÆ÷
+            //	è®¿é—®å™¨ï¼Œè®¾ç½®å™¨
             vec2& position();
             vec2& velocity();
             float mass();
@@ -47,13 +47,13 @@ namespace air
 			float m_reset_length;
 			float m_friction;
 		public:
-			// ¹¹Ôì·½·¨
-			// a£¬b£ºÖÊµã
-			// k£ºµ¯ĞÔÏµÊı
-			// rl£ºÔ­Ê¼³¤¶È
-			// fr£ºÄ¦²ÁÁ¦
+			// æ„é€ æ–¹æ³•
+			// aï¼Œbï¼šè´¨ç‚¹
+			// kï¼šå¼¹æ€§ç³»æ•°
+			// rlï¼šåŸå§‹é•¿åº¦
+			// frï¼šæ‘©æ“¦åŠ›
 			CSpring(CPoint* a, CPoint* b, float k, float rl, float fr);
-			// ¼ÆËãÁ¦
+			// è®¡ç®—åŠ›
 			void calculate_force();
 		private:
 			CSpring();
@@ -65,12 +65,12 @@ namespace air
 		{
         public:
             IForceGen()   {};
-            virtual void run(CPoint* p) = 0;   // p ´ú±íÊÜÁ¦×÷ÓÃµÄÖÊµã
+            virtual void run(CPoint* p) = 0;   // p ä»£è¡¨å—åŠ›ä½œç”¨çš„è´¨ç‚¹
         private:
             IForceGen(const IForceGen&);
             IForceGen& operator=(const IForceGen&);
 		};
-		class CDrag : public IForceGen   // Ä¦²ÁÁ¦
+		class CDrag : public IForceGen   // æ‘©æ“¦åŠ›
 		{
         private:
             float m_k1, m_k2;
@@ -78,7 +78,7 @@ namespace air
             CDrag(float k1, float k2);
             virtual void run(CPoint* p);
 		};
-		class CGravity : public IForceGen   // ÖØÁ¦
+		class CGravity : public IForceGen   // é‡åŠ›
 		{
         private:
             vec2 m_g;
@@ -86,7 +86,7 @@ namespace air
             CGravity(const vec2& g);
             virtual void run(CPoint* p);
 		};
-		/*class CSpring : public IForceGen   // µ¯Á¦
+		/*class CSpring : public IForceGen   // å¼¹åŠ›
 		{
         private:
             CPoint* m_p_other;
@@ -96,7 +96,7 @@ namespace air
             CSpring(const CPoint* p_other, float constant, float rest_length);
             virtual void run(CPoint* p);
 		};*/
-		class CAnchoredSpring : public IForceGen   // Ãªµãµ¯Á¦
+		class CAnchoredSpring : public IForceGen   // é”šç‚¹å¼¹åŠ›
 		{
         private:
             vec2 m_anchor;
@@ -110,22 +110,22 @@ namespace air
 		class CLine
 		{
         public:
-            vec2 m_s, m_e;   // Æğµã£¬ÖÕµã
-            vec2 m_nor;   // ·¨ÏòÁ¿
-            float m_l;   // ³¤¶È
+            vec2 m_s, m_e;   // èµ·ç‚¹ï¼Œç»ˆç‚¹
+            vec2 m_nor;   // æ³•å‘é‡
+            float m_l;   // é•¿åº¦
         public:
             CLine();
             ~CLine();
-            // ÉèÖÃÅö×²Ïß¶Î
-            // start£¬end£ºÆğµã£¬ÖÕµã
+            // è®¾ç½®ç¢°æ’çº¿æ®µ
+            // startï¼Œendï¼šèµ·ç‚¹ï¼Œç»ˆç‚¹
             void set(const vec2& start, const vec2& end);
-            // ·´ÉäÏòÁ¿
-            // v£ºËÙ¶È
-            // ·µ»ØÖµ£º·´ÉäºóµÄËÙ¶È
+            // åå°„å‘é‡
+            // vï¼šé€Ÿåº¦
+            // è¿”å›å€¼ï¼šåå°„åçš„é€Ÿåº¦
             vec2 rebound(const vec2& v);
-            // µãµ½Ïß¶ÎµÄ×î½ü¾àÀë
-            // v£ºµã
-            // ·µ»ØÖµ£º¾àÀë
+            // ç‚¹åˆ°çº¿æ®µçš„æœ€è¿‘è·ç¦»
+            // vï¼šç‚¹
+            // è¿”å›å€¼ï¼šè·ç¦»
             float mindist(const vec2& v);
         private:
             CLine(const CLine&);

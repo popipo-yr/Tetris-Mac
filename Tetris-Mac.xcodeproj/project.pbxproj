@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A054ED2190367A300B9953B /* air in Resources */ = {isa = PBXBuildFile; fileRef = 1A054ED1190367A300B9953B /* air */; };
 		1A4F41081902B5C0002DD6EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41061902B5C0002DD6EE /* InfoPlist.strings */; };
 		1A4F410A1902B5C0002DD6EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F41091902B5C0002DD6EE /* main.m */; };
 		1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F410C1902B5C0002DD6EE /* Credits.rtf */; };
@@ -17,7 +18,6 @@
 		1A4F41281902B5C0002DD6EE /* Tetris_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F41271902B5C0002DD6EE /* Tetris_MacTests.m */; };
 		1A4F41321902B5FF002DD6EE /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41311902B5FF002DD6EE /* GLUT.framework */; };
 		1A4F41341902B605002DD6EE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41331902B605002DD6EE /* OpenGL.framework */; };
-		1A4F41361902B72F002DD6EE /* air in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41351902B72F002DD6EE /* air */; };
 		1A4F41381902B73B002DD6EE /* res in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41371902B73B002DD6EE /* res */; };
 		1A4F413A1902B936002DD6EE /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41391902B936002DD6EE /* libstdc++.dylib */; };
 /* End PBXBuildFile section */
@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A054ED1190367A300B9953B /* air */ = {isa = PBXFileReference; lastKnownFileType = folder; path = air; sourceTree = "<group>"; };
 		1A4F40FA1902B5C0002DD6EE /* Tetris-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tetris-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F40FD1902B5C0002DD6EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A4F41001902B5C0002DD6EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -51,7 +52,6 @@
 		1A4F41271902B5C0002DD6EE /* Tetris_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tetris_MacTests.m; sourceTree = "<group>"; };
 		1A4F41311902B5FF002DD6EE /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		1A4F41331902B605002DD6EE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		1A4F41351902B72F002DD6EE /* air */ = {isa = PBXFileReference; lastKnownFileType = folder; path = air; sourceTree = "<group>"; };
 		1A4F41371902B73B002DD6EE /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		1A4F41391902B936002DD6EE /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -124,8 +124,8 @@
 		1A4F41031902B5C0002DD6EE /* Tetris-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				1A054ED1190367A300B9953B /* air */,
 				1A4F41371902B73B002DD6EE /* res */,
-				1A4F41351902B72F002DD6EE /* air */,
 				1A4F41151902B5C0002DD6EE /* Images.xcassets */,
 				1A4F41041902B5C0002DD6EE /* Supporting Files */,
 			);
@@ -242,7 +242,7 @@
 				1A4F41161902B5C0002DD6EE /* Images.xcassets in Resources */,
 				1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */,
 				1A4F41381902B73B002DD6EE /* res in Resources */,
-				1A4F41361902B72F002DD6EE /* air in Resources */,
+				1A054ED2190367A300B9953B /* air in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +466,7 @@
 				1A4F412D1902B5C0002DD6EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A4F412E1902B5C0002DD6EE /* Build configuration list for PBXNativeTarget "Tetris-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +475,7 @@
 				1A4F41301902B5C0002DD6EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

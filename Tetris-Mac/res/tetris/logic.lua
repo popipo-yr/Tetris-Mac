@@ -1,4 +1,4 @@
--- ¶íÂŞË¹·½¿é£¬ÓÎÏ·Âß¼­²¿·Ö
+-- ä¿„ç½—æ–¯æ–¹å—ï¼Œæ¸¸æˆé€»è¾‘éƒ¨åˆ†
 -- qq_d_y
 dofile("res/tetris/define.lua")
 
@@ -11,15 +11,15 @@ local cursor_pos =
 	{ 185, 200, }, { 185, 175, }, { 185, 150, },
 }
 local bgm = true
-local score = 0			-- µÃ·Ö
-local face = 0			-- ±íÇé
-local over_ani = 26	-- ½áÊøÊ±¶¯»­
+local score = 0			-- å¾—åˆ†
+local face = 0			-- è¡¨æƒ…
+local over_ani = 26	-- ç»“æŸæ—¶åŠ¨ç”»
 
 function clean_map()
-	for i = 1,10 do		-- 10 ÁĞ
+	for i = 1,10 do		-- 10 åˆ—
 		map[i] = {}
-		for j = 1,26 do	-- 26 ĞĞ
-			map[i][j] = 0	-- ËùÓĞÎ»ÖÃ¶¼Ã»ÓĞ·½¿éÕ¼¾İ
+		for j = 1,26 do	-- 26 è¡Œ
+			map[i][j] = 0	-- æ‰€æœ‰ä½ç½®éƒ½æ²¡æœ‰æ–¹å—å æ®
 		end
 	end
 end
@@ -136,12 +136,12 @@ function main_draw()
 	draw_face()
 end
 
--- »æÖÆµØÍ¼
+-- ç»˜åˆ¶åœ°å›¾
 function draw_map()
-	for i = 0, 10 do	-- 10 ÁĞ
+	for i = 0, 10 do	-- 10 åˆ—
 		g.line(i * g.quad_size, 0, i * g.quad_size, 26 * g.quad_size, 0, 255, 0)
 	end
-	for i = 0, 26 do	-- 26 ĞĞ
+	for i = 0, 26 do	-- 26 è¡Œ
 		g.line(0, i * g.quad_size, 10 * g.quad_size, i * g.quad_size, 0, 255, 0)
 	end
 	for x = 1, 10 do
@@ -154,7 +154,7 @@ function draw_map()
 	draw_cur_shape()
 end
 
--- »æÖÆ²Ëµ¥
+-- ç»˜åˆ¶èœå•
 function draw_menu()
 	air.pen_print("1", 200, 200, 0, 255, 0, "start")
 	if bgm then
@@ -167,7 +167,7 @@ function draw_menu()
 	air.pen_print("2", 190, 16, 0, 255, 0, "score:"..score)
 end
 
--- »æÖÆ±íÇé
+-- ç»˜åˆ¶è¡¨æƒ…
 function draw_face()
 	if face == 0 then
 		air.surface_draw_sprite("welcome", 180, 230)
@@ -178,7 +178,7 @@ function draw_face()
 	end
 end
 
--- ²úÉúÒ»¸öĞÎ×´
+-- äº§ç”Ÿä¸€ä¸ªå½¢çŠ¶
 function gen_shape()
 	local rnd = math.random(#g.prob)
 	cur.x = 5
@@ -186,19 +186,19 @@ function gen_shape()
 	cur.s = g.shape[g.prob[rnd]]
 end
 
--- ¸üĞÂµ±Ç°ĞÎ×´µÄÎ»ÖÃ
+-- æ›´æ–°å½“å‰å½¢çŠ¶çš„ä½ç½®
 function update_cur_shape()
 		cur.y = cur.y - 1
 end
 
--- »æÖÆµ±Ç°ĞÎ×´
+-- ç»˜åˆ¶å½“å‰å½¢çŠ¶
 function draw_cur_shape()
 	for i = 1, 8, 2 do
 		g.quad(cur.x + cur.s[i], cur.y + cur.s[i + 1], cur.s[10], cur.s[11], cur.s[12])
 	end
 end
 
--- Ğı×ªµ±Ç°ĞÎ×´
+-- æ—‹è½¬å½“å‰å½¢çŠ¶
 function rotate_cur_shape()
 	local idx = cur.s[9]
 	local t = { x = cur.x, y = cur.y, s = g.shape[idx], }
@@ -218,15 +218,15 @@ function rotate_cur_shape()
 	cur = t
 end
 
--- ¼ì²éÊÇ·ñÄÜÒÆ¶¯£¬ÏòÏÂ£¬Ïò×ó£¬ÏòÓÒ
+-- æ£€æŸ¥æ˜¯å¦èƒ½ç§»åŠ¨ï¼Œå‘ä¸‹ï¼Œå‘å·¦ï¼Œå‘å³
 function move_down_check()
-	-- ¼ì²âÊÇ·ñÒÑ´¥µ×
+	-- æ£€æµ‹æ˜¯å¦å·²è§¦åº•
 	for i = 1, 8, 2 do
 		if cur.y + cur.s[i + 1] == 1 then
 			handle_shape_stop()
 		end
 	end
-	-- ¼ì²â½«ÒªÒÆ¶¯µ½µÄÏÂÒ»¸ñÊÇ·ñ¿ÕÏĞ
+	-- æ£€æµ‹å°†è¦ç§»åŠ¨åˆ°çš„ä¸‹ä¸€æ ¼æ˜¯å¦ç©ºé—²
 	for i = 1, 8, 2 do
 		local x = cur.x + cur.s[i]
 		local y = cur.y + cur.s[i + 1]
@@ -257,25 +257,25 @@ function move_right()
 	cur.x = cur.x + 1	
 end
 
--- Ö´ĞĞ·½¿é´¥µ×Âß¼­
+-- æ‰§è¡Œæ–¹å—è§¦åº•é€»è¾‘
 function handle_shape_stop()
-	-- ¼ì²âÊÇ·ñÒÑ´¥¶¥
+	-- æ£€æµ‹æ˜¯å¦å·²è§¦é¡¶
 	if cur.y == 26 then
 		state = g.OVER
 		face = 2
 		return
 	end
-	-- Ìî³äµØÍ¼
+	-- å¡«å……åœ°å›¾
 	for i = 1, 8, 2 do
 		local x = cur.x + cur.s[i]
 		local y = cur.y + cur.s[i + 1]
 		map[x][y] = 1
 	end
-	check_full_line(cur.y)	-- ÏûĞĞ¼ì²â
-	gen_shape()				-- ²úÉúĞÂµÄ·½¿é
+	check_full_line(cur.y)	-- æ¶ˆè¡Œæ£€æµ‹
+	gen_shape()				-- äº§ç”Ÿæ–°çš„æ–¹å—
 end
 
--- ¼ì²âÊÇ·ñÂúĞĞ¡£Èç¹û¸ÃĞĞÂúÁË£¬Ôò½«ÉÏĞĞµÄÊı¾İ¿½±´ÏÂÀ´£¬ÓÉÓÚÒ»´Î×î¶àÏûÈ¥ËÄĞĞ£¬ËùÒÔÒ»´Î×î¶à¼ì²âËÄĞĞ
+-- æ£€æµ‹æ˜¯å¦æ»¡è¡Œã€‚å¦‚æœè¯¥è¡Œæ»¡äº†ï¼Œåˆ™å°†ä¸Šè¡Œçš„æ•°æ®æ‹·è´ä¸‹æ¥ï¼Œç”±äºä¸€æ¬¡æœ€å¤šæ¶ˆå»å››è¡Œï¼Œæ‰€ä»¥ä¸€æ¬¡æœ€å¤šæ£€æµ‹å››è¡Œ
 function is_line_full(n)
 	for i = 1, 10 do
 		if map[i][n] == 0 then
@@ -304,7 +304,7 @@ function check_full_line(line)
 	end
 end
 function test()
-	-- ¹¹ÔìÒ»¸öÑ­»·£¬Ä£ÄâÏûĞĞ´ÎÊı´ïµ½30´ÎµÄÇé¿ö£¬debugÓÃ
+	-- æ„é€ ä¸€ä¸ªå¾ªç¯ï¼Œæ¨¡æ‹Ÿæ¶ˆè¡Œæ¬¡æ•°è¾¾åˆ°30æ¬¡çš„æƒ…å†µï¼Œdebugç”¨
 	--[[for i = 1, 30 do
 		for j = 1,10 do
 			map[j][1] = 1
@@ -312,7 +312,7 @@ function test()
 		check_full_line(1)
 	end]]
 end
--- ¼ì²âµ±Ç°»ı·Ö£¬¸ù¾İ»ı·Ö¸Ä±äÓÎÏ·ËÙ¶È
+-- æ£€æµ‹å½“å‰ç§¯åˆ†ï¼Œæ ¹æ®ç§¯åˆ†æ”¹å˜æ¸¸æˆé€Ÿåº¦
 function check_score(s)
 	if s > 100 then
 		g.update_interval = 0.15

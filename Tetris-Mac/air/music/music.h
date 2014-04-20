@@ -29,35 +29,35 @@ namespace air
 		CMusic();
 		~CMusic();
 		/*
-			ÔØÈëÒôÀÖ/ÒôĞ§¡£ÒôÀÖ¿ÉÒÔÑ­»·²¥·Å£¬¿ÉÒÔÔİÍ££»ÒôĞ§Ö»²¥·ÅÒ»´Î
-			file£º		ÎÄ¼şÂ·¾¶
-			name£º		Ë÷ÒıÃû
+			è½½å…¥éŸ³ä¹/éŸ³æ•ˆã€‚éŸ³ä¹å¯ä»¥å¾ªç¯æ’­æ”¾ï¼Œå¯ä»¥æš‚åœï¼›éŸ³æ•ˆåªæ’­æ”¾ä¸€æ¬¡
+			fileï¼š		æ–‡ä»¶è·¯å¾„
+			nameï¼š		ç´¢å¼•å
 		*/
 		bool load_music(string file, string name);
 		bool load_sound(string file, string name);
 		/*
-			¸ù¾İÅäÖÃÎÄ¼şÔØÈëÒôÀÖ×ÊÔ´
-			config£º		ÅäÖÃÎÄ¼şÃû
+			æ ¹æ®é…ç½®æ–‡ä»¶è½½å…¥éŸ³ä¹èµ„æº
+			configï¼š		é…ç½®æ–‡ä»¶å
 		*/
 		void load_from_config(string config);
 		/*
-			²¥·ÅÖ¸¶¨µÄÒôÀÖ
+			æ’­æ”¾æŒ‡å®šçš„éŸ³ä¹
 		*/
 		bool play(string name);
 		/*
-			ÔİÍ£²¥·Å
+			æš‚åœæ’­æ”¾
 		*/
 		void pause(string name);
 		/*
-			¼ÌĞø²¥·Å
+			ç»§ç»­æ’­æ”¾
 		*/
 		void proceed(string name);
 		/*
-			ÄÚ´æÊÍ·Å
+			å†…å­˜é‡Šæ”¾
 		*/
 		void free();
 		/*
-			¸üĞÂ
+			æ›´æ–°
 		*/
 		void update();
 	private:

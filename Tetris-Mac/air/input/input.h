@@ -2,7 +2,7 @@
 #define input_h_
 
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+//#include <windows.h>
 #include <map>
 #include <string>
 using std::map;
@@ -21,7 +21,7 @@ namespace air
 	{
     private:
         enum   { KEY_NUM = 256, MOUSE_NUM = 3 };
-		HWND    m_wnd;
+		//HWND    m_wnd;
 		float	      m_x, m_y, m_wheel;
 		short	  m_mouse[MOUSE_NUM];
 		short	  m_last_mouse[MOUSE_NUM];
@@ -32,13 +32,13 @@ namespace air
 		KeyNameMap m_name_to_key;
 
 	public:
-		CInput(HWND wnd);
+		CInput(int wnd);//HWND wnd);
 		~CInput();
-		//	¸üĞÂÉè±¸×´Ì¬
+		//	æ›´æ–°è®¾å¤‡çŠ¶æ€
 		void update();
-		//	²éÑ¯ÊäÈëÉè±¸×´Ì¬
-		//	key£º	¼üÅÌ
-		//	button£ºÊó±ê
+		//	æŸ¥è¯¢è¾“å…¥è®¾å¤‡çŠ¶æ€
+		//	keyï¼š	é”®ç›˜
+		//	buttonï¼šé¼ æ ‡
 		bool key_down(unsigned int key) const;
 		bool key_up(unsigned int key) const;
 		bool mouse_down(unsigned int button) const;
@@ -46,12 +46,12 @@ namespace air
 		float get_mouse_x() const;
 		float get_mouse_y() const;
 		float get_mouse_wheel() const;
-		//	¸ù¾İÃû×Ö²éÑ¯ÊäÈë×´Ì¬
-		//	name£º	Ãû×Ö
+		//	æ ¹æ®åå­—æŸ¥è¯¢è¾“å…¥çŠ¶æ€
+		//	nameï¼š	åå­—
 		bool key_down_by_name(string name) const;
 		bool key_up_by_name(string name) const;
-        // µÃµ½Ä³Ò»Ê±¿Ì°´ÏÂµÄÄ³¸ö°´¼ü
-        // ·µ»ØÖµ£º¼üÖµ
+        // å¾—åˆ°æŸä¸€æ—¶åˆ»æŒ‰ä¸‹çš„æŸä¸ªæŒ‰é”®
+        // è¿”å›å€¼ï¼šé”®å€¼
 		int get_key_down() const;
 		int get_key_up() const;
 	private:

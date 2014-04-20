@@ -41,10 +41,10 @@ namespace air
 	}
 	void COpenGL::frame() const
 	{
-		// ÇåÆÁ
+		// æ¸…å±
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// ´íÎó´¦Àí
+		// é”™è¯¯å¤„ç†
 		GLenum err;
 		err = glGetError();
 		if (err == GL_NO_ERROR)
@@ -86,20 +86,20 @@ namespace air
 	}
 	void COpenGL::_init()
 	{
-		glShadeModel(GL_SMOOTH);				// ÆôÓÃÒõÓ°Æ½»¬
-		glClearDepth(1.0f);						// Éî¶È»º´æ
-		glEnable(GL_DEPTH_TEST);				// ÆôÓÃÉî¶È²âÊÔ
-		glDepthFunc(GL_LEQUAL);					// Éî¶È²âÊÔÀàĞÍ
-		glEnable(GL_TEXTURE_2D);				// ¿ªÆôÎÆÀí
-		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);	// ±³¾°ÑÕÉ«
+		glShadeModel(GL_SMOOTH);				// å¯ç”¨é˜´å½±å¹³æ»‘
+		glClearDepth(1.0f);						// æ·±åº¦ç¼“å­˜
+		glEnable(GL_DEPTH_TEST);				// å¯ç”¨æ·±åº¦æµ‹è¯•
+		glDepthFunc(GL_LEQUAL);					// æ·±åº¦æµ‹è¯•ç±»å‹
+		glEnable(GL_TEXTURE_2D);				// å¼€å¯çº¹ç†
+		glClearColor(0.0f, 0.0f, 0.0f, 0.5f);	// èƒŒæ™¯é¢œè‰²
 
-		// Ğ§¹û×î¼Ñ
+		// æ•ˆæœæœ€ä½³
 		glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
 		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 		glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
 		glHint(GL_FOG_HINT, GL_NICEST);
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-		glEnable(GL_POLYGON_SMOOTH);			// ¶à±ßĞÎ¿¹¾â³İ
+		glEnable(GL_POLYGON_SMOOTH);			// å¤šè¾¹å½¢æŠ—é”¯é½¿
 		glViewport(0, 0, m_width, m_height);
 	}
 
@@ -192,7 +192,7 @@ namespace air
 	bool CSurface::draw_sprite(const char* p_name, float x, float y, float sub_x, float sub_y, float sub_width, float sub_height)
 	{
 		glEnable(GL_ALPHA_TEST);
-		glAlphaFunc(GL_GREATER, 0);		// alpha Öµ´óÓÚ 0 µÄÏñËØ²Å»á±»»æÖÆ
+		glAlphaFunc(GL_GREATER, 0);		// alpha å€¼å¤§äº 0 çš„åƒç´ æ‰ä¼šè¢«ç»˜åˆ¶
 		if (!draw_texture(p_name, x, y, sub_x, sub_y, sub_width, sub_height))
 		{
 			glDisable(GL_ALPHA_TEST);

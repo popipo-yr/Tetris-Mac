@@ -1,5 +1,5 @@
 /*
-	ini ÎÄ¼ş½âÎöÀà
+	ini æ–‡ä»¶è§£æç±»
 */
 #ifndef ini_h_
 #define ini_h_
@@ -21,24 +21,24 @@ namespace air
 		CIni();
 		~CIni();
 		/*
-			ÔØÈë²¢½âÎöÅäÖÃÎÄ¼ş
-			p_ini£º		ÅäÖÃÎÄ¼şÂ·¾¶
-			·µ»ØÖµ£º	³É¹¦ / Ê§°Ü
+			è½½å…¥å¹¶è§£æé…ç½®æ–‡ä»¶
+			p_iniï¼š		é…ç½®æ–‡ä»¶è·¯å¾„
+			è¿”å›å€¼ï¼š	æˆåŠŸ / å¤±è´¥
 		*/
 		bool load(const char* p_ini);
 		/*
-			´ÓÅäÖÃÎÄ¼şÖĞ¶ÁÈ¡ĞÅÏ¢
-			section£º	¿éÃû
-			name£º		ÊôĞÔÃû
-			value£º		¶ÁÈ¡µ½µÄÖµ
-			·µ»ØÖµ£º	³É¹¦ / Ê§°Ü
+			ä»é…ç½®æ–‡ä»¶ä¸­è¯»å–ä¿¡æ¯
+			sectionï¼š	å—å
+			nameï¼š		å±æ€§å
+			valueï¼š		è¯»å–åˆ°çš„å€¼
+			è¿”å›å€¼ï¼š	æˆåŠŸ / å¤±è´¥
 		*/
 		bool read_int(const string& section, const string& name, int& value);
 		bool read_float(const string& section, const string& name, float& value);
 		bool read_string(const string& section, const string& name, string& value);
 		bool read_3ub(string section, string name, unsigned char& x, unsigned char& y, unsigned char& z);
 		/*
-			ÊÍ·ÅÄÚ´æ
+			é‡Šæ”¾å†…å­˜
 		*/
 		void free();
 

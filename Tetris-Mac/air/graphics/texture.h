@@ -11,10 +11,10 @@ namespace air
 	class CTextureManager
 	{
 	public:
-		struct Texture					// ÎÆÀí½á¹¹Ìå	
+		struct Texture					// çº¹ç†ç»“æ„ä½“	
 		{
-			unsigned int id;			// ÎÆÀíË÷Òı
-			unsigned int width, height;	// ÎÆÀí³ß´ç
+			unsigned int id;			// çº¹ç†ç´¢å¼•
+			unsigned int width, height;	// çº¹ç†å°ºå¯¸
 		};
 
 	private:
@@ -28,29 +28,29 @@ namespace air
 		~CTextureManager();
 
 		/*
-			ÔØÈëÖ¸¶¨Í¸Ã÷É«µÄ BMP ÎÄ¼ş×÷ÎªÎÆÀí
-			p_file£º	Í¼ÏñÎÄ¼şÂ·¾¶
-			p_name£º	ÎÆÀíË÷ÒıÃû
-			r£¬g£¬b£º	Í¸Ã÷É«£¬Ä¬ÈÏÎª×ÏÉ« RGB(128,0,128)
+			è½½å…¥æŒ‡å®šé€æ˜è‰²çš„ BMP æ–‡ä»¶ä½œä¸ºçº¹ç†
+			p_fileï¼š	å›¾åƒæ–‡ä»¶è·¯å¾„
+			p_nameï¼š	çº¹ç†ç´¢å¼•å
+			rï¼Œgï¼Œbï¼š	é€æ˜è‰²ï¼Œé»˜è®¤ä¸ºç´«è‰² RGB(128,0,128)
 		*/
 		bool load_bmp(const char* p_file, const char* p_name, unsigned char r = 128, unsigned char g = 0, unsigned char b = 128);
 
 		/*
-			ÔØÈë TGA ÎÄ¼ş×÷ÎªÎÆÀí
-			p_file£º	Í¼ÏñÎÄ¼şÂ·¾¶
-			p_name£º	ÎÆÀíË÷ÒıÃû
+			è½½å…¥ TGA æ–‡ä»¶ä½œä¸ºçº¹ç†
+			p_fileï¼š	å›¾åƒæ–‡ä»¶è·¯å¾„
+			p_nameï¼š	çº¹ç†ç´¢å¼•å
 		*/
 		bool load_tga(const char* p_file, const char* p_name);
 
 		/*
-			´ÓÅäÖÃÎÄ¼şÖĞÔØÈëÎÆÀí
-			p_config£º	ÅäÖÃÎÄ¼şÃû
+			ä»é…ç½®æ–‡ä»¶ä¸­è½½å…¥çº¹ç†
+			p_configï¼š	é…ç½®æ–‡ä»¶å
 		*/
 		bool load_from_config(const char* p_config);
 
 		/*
-			µÃµ½ÎÆÀíµÄĞÅÏ¢
-			p_name£º	ÎÆÀíË÷ÒıÃû
+			å¾—åˆ°çº¹ç†çš„ä¿¡æ¯
+			p_nameï¼š	çº¹ç†ç´¢å¼•å
 		*/
 		unsigned int get_id(const char* p_name) const;
 		unsigned int get_width(const char* p_name) const;
@@ -58,18 +58,18 @@ namespace air
 		const Texture* get_texture(const char* p_name) const;
 
 		/*
-			¹âÕ¤»¯ÎÆÀí£¬¾Ö²¿×ø±êÔ­µãÎªÎÆÀíÖĞĞÄ£¨·½±ãÒÔÎÆÀíÎªÖĞĞÄĞı×ª£©
-			p_name£º				Ë÷ÒıÃû
-			sub_x£¬sub_y£º			Æğµã×ø±ê
-			sub_width£¬sub_height£º	³ß´ç
+			å…‰æ …åŒ–çº¹ç†ï¼Œå±€éƒ¨åæ ‡åŸç‚¹ä¸ºçº¹ç†ä¸­å¿ƒï¼ˆæ–¹ä¾¿ä»¥çº¹ç†ä¸ºä¸­å¿ƒæ—‹è½¬ï¼‰
+			p_nameï¼š				ç´¢å¼•å
+			sub_xï¼Œsub_yï¼š			èµ·ç‚¹åæ ‡
+			sub_widthï¼Œsub_heightï¼š	å°ºå¯¸
 		*/
 		bool raster_origin_center(const char* p_name, float sub_x = 0.0f, float sub_y  = 0.0f, float sub_width = 0.0f, float sub_height = 0.0f) const;
 
 		/*
-			¹âÕ¤»¯ÎÆÀí£¬¾Ö²¿×ø±êÔ­µãÎªÎÆÀí×óÏÂ½Ç
-			p_name£º				Ë÷ÒıÃû
-			sub_x£¬sub_y£º			Æğµã×ø±ê
-			sub_width£¬sub_height£º	³ß´ç
+			å…‰æ …åŒ–çº¹ç†ï¼Œå±€éƒ¨åæ ‡åŸç‚¹ä¸ºçº¹ç†å·¦ä¸‹è§’
+			p_nameï¼š				ç´¢å¼•å
+			sub_xï¼Œsub_yï¼š			èµ·ç‚¹åæ ‡
+			sub_widthï¼Œsub_heightï¼š	å°ºå¯¸
 		*/
 		bool raster_origin_leftbottom(const char* p_name, float sub_x = 0.0f, float sub_y  = 0.0f, float sub_width = 0.0f, float sub_height = 0.0f) const;
 
@@ -80,16 +80,16 @@ namespace air
 	extern CTextureManager* g_p_tex_mgr;
 
 	//////////////////////////////////////////////////////////////////////////
-	// Í¼Ïñ×ÖÌå
+	// å›¾åƒå­—ä½“
 	class CImageFont
 	{
 	private:
 		struct Font
 		{
-			unsigned int id;		// ÏÔÊ¾ÁĞ±íID
-			unsigned int width;		// ×Ö·û¿í
-			unsigned int height;	// ×Ö·û¸ß
-			unsigned int tex_id;	// ÎÆÀíID
+			unsigned int id;		// æ˜¾ç¤ºåˆ—è¡¨ID
+			unsigned int width;		// å­—ç¬¦å®½
+			unsigned int height;	// å­—ç¬¦é«˜
+			unsigned int tex_id;	// çº¹ç†ID
 		};
 		Font m_font;
 		unsigned int m_ascii_to_list[128];
@@ -103,15 +103,15 @@ namespace air
 		~CImageFont();
 
 		/*
-			´´½¨Ò»ÖÖÍ¼Ïñ×ÖÌå£¬´ÓÎÆÀí£¨Íâ²¿Î»Í¼£©ÖĞ´´½¨×ÖÌå
-			p_tex_name£ºÎÆÀíÃû
+			åˆ›å»ºä¸€ç§å›¾åƒå­—ä½“ï¼Œä»çº¹ç†ï¼ˆå¤–éƒ¨ä½å›¾ï¼‰ä¸­åˆ›å»ºå­—ä½“
+			p_tex_nameï¼šçº¹ç†å
 		*/
 		bool create(const char* p_tex_name);
 
 		/*
-			ÏÔÊ¾ĞÅÏ¢
-			x£¬y£º	Î»ÖÃ
-			msg£º	ĞÅÏ¢
+			æ˜¾ç¤ºä¿¡æ¯
+			xï¼Œyï¼š	ä½ç½®
+			msgï¼š	ä¿¡æ¯
 		*/
 		void print(float x, float y, string msg);
 

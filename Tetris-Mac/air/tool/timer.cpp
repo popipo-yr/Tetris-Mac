@@ -7,8 +7,8 @@ namespace air
 	CTimer::CTimer()	
 	{
 		__int64 rate;
-		QueryPerformanceFrequency((LARGE_INTEGER*)&rate);	// Ã¿ÃëÖ´ĞĞµÄ Count Êı
-		m_sec_per_count = 1.0 / (double)rate;				// Ö´ĞĞ 1 Count ºÄ·ÑµÄÃëÊı
+		QueryPerformanceFrequency((LARGE_INTEGER*)&rate);	// æ¯ç§’æ‰§è¡Œçš„ Count æ•°
+		m_sec_per_count = 1.0 / (double)rate;				// æ‰§è¡Œ 1 Count è€—è´¹çš„ç§’æ•°
 		m_start_tick = 0;
 		m_pause = false;
 	}
@@ -40,7 +40,7 @@ namespace air
 
 		__int64 cur_tick;
 		QueryPerformanceCounter((LARGE_INTEGER*)&cur_tick);
-		double pass = (double)(cur_tick - m_start_tick) * m_sec_per_count;	// ¾­¹ıµÄÃëÊı
+		double pass = (double)(cur_tick - m_start_tick) * m_sec_per_count;	// ç»è¿‡çš„ç§’æ•°
 		return pass;
 	}
 

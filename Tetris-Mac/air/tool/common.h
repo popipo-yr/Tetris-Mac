@@ -1,5 +1,5 @@
 /*
-	³£ÓÃĞ¡º¯Êı
+	å¸¸ç”¨å°å‡½æ•°
 */
 #ifndef common_h_
 #define common_h_
@@ -11,11 +11,11 @@ using std::string;
 
 namespace air
 {
-	// ³£ÓÃ¹¤¾ßºê
+	// å¸¸ç”¨å·¥å…·å®
 	#define SAFE_DELETE(x)			{ if (x) { delete (x);		(x) = NULL; } }
 	#define SAFE_DELETE_ARRAY(x)	{ if (x) { delete[] (x);	(x) = NULL; } }
 	#define SAFE_FREE(x)			{ if (x) { free(x);			(x) = NULL; } }
-	// ×Ö·û´®×ª»¯Îª¸¡µãÊı
+	// å­—ç¬¦ä¸²è½¬åŒ–ä¸ºæµ®ç‚¹æ•°
 	inline float str_to_float(string num)
 	{
 		return static_cast<float>(atof(num.c_str()));
@@ -24,7 +24,7 @@ namespace air
 	{
 		return str_to_float(num);
 	}
-	// ×Ö·û´®×ª»¯ÎªÕûÊı
+	// å­—ç¬¦ä¸²è½¬åŒ–ä¸ºæ•´æ•°
 	inline int str_to_int(string num)
 	{
 		return atoi(num.c_str());
@@ -33,7 +33,7 @@ namespace air
 	{
 		return str_to_int(num);
 	}
-	// Êı¾İÀàĞÍ×ª»¯Îª×Ö·û´®
+	// æ•°æ®ç±»å‹è½¬åŒ–ä¸ºå­—ç¬¦ä¸²
     template<class T>
     std::string tostr(const T& r)
     {
@@ -44,7 +44,7 @@ namespace air
         return oss.str();
     }
 
-	// Êı¾İÀàĞÍ
+	// æ•°æ®ç±»å‹
 	typedef unsigned long	u32;
 	typedef long			s32;
 	typedef unsigned short	u16;

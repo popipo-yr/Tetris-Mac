@@ -1,4 +1,4 @@
-#include "../air.h"	  // À©Õ¹½Ó¿ÚÊ±ĞèÒª´ó²¿·Ö²¿¼ş
+#include "../air.h"	  // æ‰©å±•æ¥å£æ—¶éœ€è¦å¤§éƒ¨åˆ†éƒ¨ä»¶
 #include "script.h"
 #include <stdarg.h>
 #include <string>
@@ -10,8 +10,8 @@ namespace air
 	CScript::CScript()
 	{
 		m_L = lua_open();
-		luaL_openlibs(m_L);	// ´ò¿ªËùÓĞµÄlua±ê×¼¿â
-		_register_func();	// ×¢²á¹¦ÄÜº¯Êı
+		luaL_openlibs(m_L);	// æ‰“å¼€æ‰€æœ‰çš„luaæ ‡å‡†åº“
+		_register_func();	// æ³¨å†ŒåŠŸèƒ½å‡½æ•°
 	}
 	CScript::~CScript()
 	{
@@ -29,7 +29,7 @@ namespace air
 		sprintf(name, p_fun_name);
 
 		lua_getglobal(m_L, name);
-		if (lua_isnil(m_L, -1) == 1)	// ¼ì²é·½·¨ÊÇ·ñÎª nil
+		if (lua_isnil(m_L, -1) == 1)	// æ£€æŸ¥æ–¹æ³•æ˜¯å¦ä¸º nil
 			return;
 		if (lua_pcall(m_L, 0, 0, 0) != 0)
 			_err("CScript::call error:%s", lua_tostring(m_L, -1));
@@ -39,7 +39,7 @@ namespace air
 		va_list vl;
 		va_start(vl, p_params);
 		lua_getglobal(m_L, p_fun_name);
-		if (lua_isnil(m_L, -1) == 1)	// ¼ì²é·½·¨ÊÇ·ñÎª nil
+		if (lua_isnil(m_L, -1) == 1)	// æ£€æŸ¥æ–¹æ³•æ˜¯å¦ä¸º nil
 			return;
 		int arg_num = 0;
 		while (*p_params)

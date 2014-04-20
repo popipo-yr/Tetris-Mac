@@ -40,7 +40,7 @@ void draw()
 	g_img_font2.print(200, 410, "QQDY");
 	g_img_font1.print(55, 435, "TETRIS");
 }
-int main(HINSTANCE, HINSTANCE, LPSTR, int)
+int main(int argc, char ** argv)
 {
 	g_p_system = new CSystem(320, 480, "AirGE by qq_d_y --- tetris");
 	g_p_system->set_callback(CSystem::INIT, init);

@@ -1,32 +1,32 @@
--- ¶íÂŞË¹·½¿é£¬È«¾Ö±äÁ¿ºÍºê¶¨Òå
+-- ä¿„ç½—æ–¯æ–¹å—ï¼Œå…¨å±€å˜é‡å’Œå®å®šä¹‰
 -- qq_d_y
 g =
 {
-	-- ÓÎÏ·×´Ì¬
+	-- æ¸¸æˆçŠ¶æ€
 	MENU = 1,
 	GAME = 2,
 	OVER = 3,
 	
 	x_offset = 10,
 	y_offset = 8,
-	quad_size = 16,	-- µØÍ¼¿é³ß´ç
+	quad_size = 16,	-- åœ°å›¾å—å°ºå¯¸
 	
-	update_interval = 0.2,	-- ¸üĞÂ¼ä¸ô£¬¿ØÖÆÓÎÏ·ËÙ¶È
+	update_interval = 0.2,	-- æ›´æ–°é—´éš”ï¼Œæ§åˆ¶æ¸¸æˆé€Ÿåº¦
 	
-	-- »æÖÆÏß¶Î
+	-- ç»˜åˆ¶çº¿æ®µ
 	line = function(x1, y1, x2, y2, red, green, blue)
 		air.surface_draw_line(g.x_offset + x1, g.y_offset + y1, g.x_offset + x2, g.y_offset + y2, red, green, blue, 1)
 	end,
-	-- »æÖÆ·½¿é
+	-- ç»˜åˆ¶æ–¹å—
 	quad = function(x, y, red, green, blue)
 		if g.y_offset + ((y - 1) * g.quad_size) + 1 > g.y_offset + g.quad_size * 26 - 1 then
 			return
 		end
-		-- +1ºÍ-1ÊÇÎªÁËÔÚ·½¿éÖ®¼äÁô³ö¼äÏ¶
+		-- +1å’Œ-1æ˜¯ä¸ºäº†åœ¨æ–¹å—ä¹‹é—´ç•™å‡ºé—´éš™
 		air.surface_draw_rect(g.x_offset + ((x - 1) * g.quad_size) + 1, g.y_offset + ((y - 1) * g.quad_size) + 1, g.quad_size - 1, g.quad_size - 1, red, green, blue, true) 
 	end,
 	
-	-- ĞÎ×´¶¨Òå	[1][2] 1st_xy_offset	[3][4] 2nd_xy_offset	[5][6] 3rd_xy_offset	[7][8] 4th_xy_offset	[9] rotate_to_shape	[10][11][12] rgb
+	-- å½¢çŠ¶å®šä¹‰	[1][2] 1st_xy_offset	[3][4] 2nd_xy_offset	[5][6] 3rd_xy_offset	[7][8] 4th_xy_offset	[9] rotate_to_shape	[10][11][12] rgb
 	shape = 
 	{
 		[1] = { 0, 0, 1, 0, 0, 1, 1, 1, 1, 255, 0, 0, },	-- quad
@@ -42,11 +42,11 @@ g =
 		[10] = { 0, 0, 0, 1, 1, 1, 1, 2, 11, 0, 255, 255, },
 		[11] = { 0, 1, 1, 1, 1, 0, 2, 0, 10, 0, 255, 255, },
 	},
-	-- ĞÎ×´¸ÅÂÊ±í
+	-- å½¢çŠ¶æ¦‚ç‡è¡¨
 	prob = { 1, 2, 4, 8, 10, },
 	
-	-- ¼üÅÌ×´Ì¬
-	key_flag = 0,   -- 0 °´ÏÂ£¬1 µ¯Æğ
+	-- é”®ç›˜çŠ¶æ€
+	key_flag = 0,   -- 0 æŒ‰ä¸‹ï¼Œ1 å¼¹èµ·
 }
 
 local tick = 0

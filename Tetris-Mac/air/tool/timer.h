@@ -6,28 +6,28 @@ namespace air
 	class CTimer
 	{
 	private:
-		double	m_sec_per_count;	// CPU Ö´ĞĞ 1 Count ºÄ·ÑµÄÃëÊı
-		__int64	m_start_tick;		// ¼ÆÊ±Æ÷Æô¶¯Ê±¿Ì
-		bool	m_pause;			// ¼ÆÊ±Æ÷ÔİÍ£±êÖ¾
+		double	m_sec_per_count;	// CPU æ‰§è¡Œ 1 Count è€—è´¹çš„ç§’æ•°
+		__int64	m_start_tick;		// è®¡æ—¶å™¨å¯åŠ¨æ—¶åˆ»
+		bool	m_pause;			// è®¡æ—¶å™¨æš‚åœæ ‡å¿—
 
 	public:
 		CTimer();
 		~CTimer();
 
 		/*
-			ÖØÖÃ¼ÆÊ±Æ÷ÆğÊ¼¼ÆÊ±Ê±¿Ì
+			é‡ç½®è®¡æ—¶å™¨èµ·å§‹è®¡æ—¶æ—¶åˆ»
 		*/
 		void reset();
 
 		/*
-			ÔİÍ£ / ÖØÆô¼ÆÊ±Æ÷
-			flag£º	true	-- ÔİÍ£¼ÆÊ±
-					false	-- »Ö¸´¼ÆÊ±
+			æš‚åœ / é‡å¯è®¡æ—¶å™¨
+			flagï¼š	true	-- æš‚åœè®¡æ—¶
+					false	-- æ¢å¤è®¡æ—¶
 		*/
 		void pause(bool flag);
 
 		/*
-			¾­¹ıµÄºÁÃë / Ãë / ·ÖÖÓ / Ê±
+			ç»è¿‡çš„æ¯«ç§’ / ç§’ / åˆ†é’Ÿ / æ—¶
 		*/
 		double pass_ms();
 		double pass_s();

@@ -15,7 +15,7 @@ namespace air
 		unsigned int version;
 		_check(FMOD_System_GetVersion(m_p_system, &version));
 		if (version < FMOD_VERSION)
-			printf("fmod version too old£¡");
+			printf("fmod version too oldï¼");
 		_check(FMOD_System_Init(m_p_system, 32, FMOD_INIT_NORMAL, NULL));
 	}
 	CMusic::~CMusic()
@@ -123,13 +123,13 @@ namespace air
 		_check(FMOD_System_Update(m_p_system));
 	}
 
-	// ÄÚ²¿·½·¨ ////////////////////////////////////////////////////////////////////////
+	// å†…éƒ¨æ–¹æ³• ////////////////////////////////////////////////////////////////////////
 	void CMusic::_check(FMOD_RESULT r)
 	{
 		if (r == FMOD_OK)
 			return;
 		char buf[128];
-        sprintf(buf, "FMOD error£¡FMOD_RESULT:%s", FMOD_ErrorString(r));
+        sprintf(buf, "FMOD errorï¼FMOD_RESULT:%s", FMOD_ErrorString(r));
         MessageBoxA(NULL, buf, "err", NULL);
 	}
 }

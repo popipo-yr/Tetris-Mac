@@ -41,7 +41,7 @@ namespace air
 		m_view.hight = view_h;
 		m_view.right = m_view.left + view_w;
 		m_view.top = m_view.bottom + view_h;
-		m_draw_num_x = view_w / m_tile_size + 1;	// +1ÊÇÒòÎªµ±Æ«ÒÆÁ¿²»Îª0Ê±£¬ÐèÒª¶à»­Ò»¸öÍ¼¿é
+		m_draw_num_x = view_w / m_tile_size + 1;	// +1æ˜¯å› ä¸ºå½“åç§»é‡ä¸ä¸º0æ—¶ï¼Œéœ€è¦å¤šç”»ä¸€ä¸ªå›¾å—
 		m_draw_num_y = view_h / m_tile_size + 1;
 		return true;
 	}
@@ -80,7 +80,7 @@ namespace air
 					continue;
 				float tex_x = (float)((m_p_map[scroll_y * m_tile_num_x + scroll_x] - 1) * m_tile_size);
 				float tex_y = 0.0f;
-				// ÏÈ×ª»¯Îªint±£Áô·ûºÅ£¬ÔÙ×ª»¯ÎªfloatÏû³ý¾¯¸æ
+				// å…ˆè½¬åŒ–ä¸ºintä¿ç•™ç¬¦å·ï¼Œå†è½¬åŒ–ä¸ºfloatæ¶ˆé™¤è­¦å‘Š
 				g_p_surface->draw_texture(m_tex.c_str(), (float)(int)(x * m_tile_size - offset_x), (float)(int)(y * m_tile_size - offset_y), tex_x, tex_y, (float)m_tile_size, (float)m_tile_size);
 			}
 		}

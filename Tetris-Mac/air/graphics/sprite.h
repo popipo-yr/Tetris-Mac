@@ -22,41 +22,41 @@ namespace air
 	public:
         CSprite();
 		virtual ~CSprite();
-		// ³õÊ¼»¯¾«Áé
-		// image£º	ÎÆÀíÃû
-		// x£¬y£º	Î»ÖÃ
-		// w£¬h£º	³ß´ç
+		// åˆå§‹åŒ–ç²¾çµ
+		// imageï¼š	çº¹ç†å
+		// xï¼Œyï¼š	ä½ç½®
+		// wï¼Œhï¼š	å°ºå¯¸
 		void init(string image, float x, float y, float w, float h);
-		// ÒÆ¶¯¾«Áé
-		// x£¬y£º	ÒÆ¶¯Á¿
+		// ç§»åŠ¨ç²¾çµ
+		// xï¼Œyï¼š	ç§»åŠ¨é‡
 		void move(float x, float y);
-		// Ö±½Ó½«¾«Áé·Åµ½Ö¸¶¨Î»ÖÃ
-		// x£¬y£º	Î»ÖÃ
+		// ç›´æ¥å°†ç²¾çµæ”¾åˆ°æŒ‡å®šä½ç½®
+		// xï¼Œyï¼š	ä½ç½®
 		void put(float x, float y);
-		// ÒÔÖĞĞÄÎªÔ­µãĞı×ª¾«Áé
-		// angle£º	½Ç¶È
+		// ä»¥ä¸­å¿ƒä¸ºåŸç‚¹æ—‹è½¬ç²¾çµ
+		// angleï¼š	è§’åº¦
 		void rotate(float angle);
-		// ¸Ä±äÍ¸Ã÷¶È
-		// alpha£º	alphaÖµ¸Ä±äÁ¿
+		// æ”¹å˜é€æ˜åº¦
+		// alphaï¼š	alphaå€¼æ”¹å˜é‡
 		void fade(int alpha);
-		// »æÖÆ¾«Áé
+		// ç»˜åˆ¶ç²¾çµ
 		virtual void draw();
-		// ·ÃÎÊÆ÷
+		// è®¿é—®å™¨
 		float pos_x() const;
 		float pos_y() const;
 		float width() const;
 		float height() const;
-		// ³õÊ¼»¯Åö×²¾ØĞÎ
-		// left£¬right£¬bottom£¬top£ºÅö×²ºĞµÄ±ß½ç
+		// åˆå§‹åŒ–ç¢°æ’çŸ©å½¢
+		// leftï¼Œrightï¼Œbottomï¼Œtopï¼šç¢°æ’ç›’çš„è¾¹ç•Œ
 		void init_aabb(float left, float right, float bottom, float top);
-		// ·ÃÎÊÅö×²¾ØĞÎ
+		// è®¿é—®ç¢°æ’çŸ©å½¢
 		aabb box() const
 		{
             return m_aabb;
 		}
-		// Åö×²¼ì²â
-		// spr£º ½øĞĞ¼ì²âµÄ¾«Áé
-		// ·µ»ØÖµ£º ÊÇ·ñ·¢ÉúÅö×²
+		// ç¢°æ’æ£€æµ‹
+		// sprï¼š è¿›è¡Œæ£€æµ‹çš„ç²¾çµ
+		// è¿”å›å€¼ï¼š æ˜¯å¦å‘ç”Ÿç¢°æ’
 		bool is_collide(const CSprite& spr) const;
 		void debug_draw_aabb() const;
 	private:
@@ -68,26 +68,26 @@ namespace air
 	class CAniSprite : public CSprite
 	{
 	public:
-		enum Sequence { X, Y };  // ¶¯»­Ö¡ÒÔÊ²Ã´·½Ê½´æ·Å
+		enum Sequence { X, Y };  // åŠ¨ç”»å¸§ä»¥ä»€ä¹ˆæ–¹å¼å­˜æ”¾
 	private:
-		CTimer* m_p_pace_controller;              // ¶¯»­ËÙ¶È¿ØÖÆ
-		unsigned int m_interval_ms;			    // Ö¡¼ä¸ô
-		unsigned int m_cur_x, m_cur_y;		    // µ±Ç°Ö¡
-		unsigned int m_total_x, m_total_y;	    // ×ÜÁĞÊı£¬×ÜĞĞÊı
-		unsigned int m_frame_w, m_frame_h;	// Ö¡¿í£¬Ö¡¸ß
-		Sequence m_seq;						        // Ö¡ĞòÁĞ
+		CTimer* m_p_pace_controller;              // åŠ¨ç”»é€Ÿåº¦æ§åˆ¶
+		unsigned int m_interval_ms;			    // å¸§é—´éš”
+		unsigned int m_cur_x, m_cur_y;		    // å½“å‰å¸§
+		unsigned int m_total_x, m_total_y;	    // æ€»åˆ—æ•°ï¼Œæ€»è¡Œæ•°
+		unsigned int m_frame_w, m_frame_h;	// å¸§å®½ï¼Œå¸§é«˜
+		Sequence m_seq;						        // å¸§åºåˆ—
 	public:
 		CAniSprite();
 		~CAniSprite();
-		// ³õÊ¼»¯¶¯»­²ÎÊı
-		// ms£º              Ã¿Ö¡¼ä¸ôºÁÃë
-		// total_x£¬total_y£º×ÜÁĞÊı£¬×ÜĞĞÊı
-		// seq£º             Ö¡ÅÅÁĞ·½Ê½
+		// åˆå§‹åŒ–åŠ¨ç”»å‚æ•°
+		// msï¼š              æ¯å¸§é—´éš”æ¯«ç§’
+		// total_xï¼Œtotal_yï¼šæ€»åˆ—æ•°ï¼Œæ€»è¡Œæ•°
+		// seqï¼š             å¸§æ’åˆ—æ–¹å¼
 		void init_ani(unsigned int ms, unsigned int total_x, unsigned int total_y, Sequence seq);
-		// ÉèÖÃÒª²¥·ÅµÄ¶¯»­Ö¡ĞòÁĞ
-		// n£º²¥·ÅµÚ¼¸¸öÖ¡ĞòÁĞ
+		// è®¾ç½®è¦æ’­æ”¾çš„åŠ¨ç”»å¸§åºåˆ—
+		// nï¼šæ’­æ”¾ç¬¬å‡ ä¸ªå¸§åºåˆ—
 		void set_sequence(unsigned int idx);
-		// »æÖÆ¾«Áé
+		// ç»˜åˆ¶ç²¾çµ
 		virtual void draw();
 	private:
         void _draw(unsigned int x, unsigned int y);

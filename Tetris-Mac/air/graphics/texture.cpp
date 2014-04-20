@@ -24,7 +24,7 @@ namespace air
 		glGenTextures(1, &tex.id);
 		glBindTexture(GL_TEXTURE_2D, tex.id);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);	// Èç¹ûÊ¹ÓÃ GL_LINEAR£¬»áµ¼ÖÂÍ¸Ã÷É«ÖÜÎ§³öÏÖÃ«´Ì
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);	// å¦‚æžœä½¿ç”¨ GL_LINEARï¼Œä¼šå¯¼è‡´é€æ˜Žè‰²å‘¨å›´å‡ºçŽ°æ¯›åˆº
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bmp.width(), bmp.height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, bmp.rgba_data());
 
 		tex.width = bmp.width();
@@ -123,10 +123,10 @@ namespace air
 		glBegin(GL_QUADS);
 			if (sub_x == 0.0f && sub_y == 0.0f && sub_width == 0.0f && sub_height == 0.0f)
 			{
-				glTexCoord2f(0.0f, 0.0f);	glVertex2i(-w / 2, -h / 2);	// ×óÏÂ½Ç
-				glTexCoord2f(1.0f, 0.0f);	glVertex2i(w / 2, -h / 2);	// ÓÒÏÂ½Ç
-				glTexCoord2f(1.0f, 1.0f);	glVertex2i(w / 2, h / 2);	// ÓÒÉÏ½Ç
-				glTexCoord2f(0.0f, 1.0f);	glVertex2i(-w / 2, h / 2);	// ×óÉÏ½Ç
+				glTexCoord2f(0.0f, 0.0f);	glVertex2i(-w / 2, -h / 2);	// å·¦ä¸‹è§’
+				glTexCoord2f(1.0f, 0.0f);	glVertex2i(w / 2, -h / 2);	// å³ä¸‹è§’
+				glTexCoord2f(1.0f, 1.0f);	glVertex2i(w / 2, h / 2);	// å³ä¸Šè§’
+				glTexCoord2f(0.0f, 1.0f);	glVertex2i(-w / 2, h / 2);	// å·¦ä¸Šè§’
 			}
 			else
 			{
@@ -155,14 +155,14 @@ namespace air
 		glBegin(GL_QUADS);
 			if (sub_x == 0.0f && sub_y == 0.0f && sub_width == 0.0f && sub_height == 0.0f)
 			{
-				glTexCoord2f(0.0f, 0.0f);	glVertex2i(0, 0);	// ×óÏÂ½Ç
-				glTexCoord2f(1.0f, 0.0f);	glVertex2i(w, 0);	// ÓÒÏÂ½Ç
-				glTexCoord2f(1.0f, 1.0f);	glVertex2i(w, h);	// ÓÒÉÏ½Ç
-				glTexCoord2f(0.0f, 1.0f);	glVertex2i(0, h);	// ×óÉÏ½Ç
+				glTexCoord2f(0.0f, 0.0f);	glVertex2i(0, 0);	// å·¦ä¸‹è§’
+				glTexCoord2f(1.0f, 0.0f);	glVertex2i(w, 0);	// å³ä¸‹è§’
+				glTexCoord2f(1.0f, 1.0f);	glVertex2i(w, h);	// å³ä¸Šè§’
+				glTexCoord2f(0.0f, 1.0f);	glVertex2i(0, h);	// å·¦ä¸Šè§’
 			}
 			else
 			{
-				// ¼ÆËãÎÆÀí×ø±ê
+				// è®¡ç®—çº¹ç†åæ ‡
 				float start_x = sub_x / w;
 				float start_y = sub_y / h;
 				float end_x = (sub_x + sub_width) / w;
@@ -201,7 +201,7 @@ namespace air
 			return false;
 		m_font.width = p_tex->width / 26;
 		m_font.height = p_tex->height / 2;
-		m_font.id = glGenLists(37);		// 26¸ö×ÖÄ¸£¬10¸öÊý×Ö£¬1¸ö¿Õ°×
+		m_font.id = glGenLists(37);		// 26ä¸ªå­—æ¯ï¼Œ10ä¸ªæ•°å­—ï¼Œ1ä¸ªç©ºç™½
 		if (m_font.id == 0)
 			return false;
 		float x_unit = 1.0f / p_tex->width;
@@ -242,7 +242,7 @@ namespace air
 			glDisable(GL_ALPHA_TEST);
 			glEndList();
 		}
-		// ¿Õ°×
+		// ç©ºç™½
 		glNewList(m_font.id + 36, GL_COMPILE);
 		glEnable(GL_ALPHA_TEST);
 		glAlphaFunc(GL_GREATER, 0);

@@ -15,50 +15,50 @@ namespace air
 		struct Pen
 		{
 			unsigned int list_id;
-			HFONT		 hfont;
+			//HFONT		 hfont;
 		};
 		typedef map<string, Pen>	PenMap;
 		PenMap m_pens;
-		void _free();	// ÊÍ·ÅÄÚ´æ
-		void _draw(unsigned int id, float x, float y, unsigned char r, unsigned char g, unsigned char b, string msg);	// »æÖÆÎÄ±¾
+		void _free();	// é‡Šæ”¾å†…å­˜
+		void _draw(unsigned int id, float x, float y, unsigned char r, unsigned char g, unsigned char b, string msg);	// ç»˜åˆ¶æ–‡æœ¬
 	public:
 		CPenManager();
 		~CPenManager();
 		/*
-			´´½¨Ò»ÖÖ×ÖÌå
-			name£º	×ÖÌåË÷ÒıÃû
-			size£º	×ÖÌå³ß´ç
-			style£º	×ÖÌå·ç¸ñÃû³Æ
-			space£º	×ÖÌåÆ½¾ù¼ä¸ô
-			weight£º×ÖÌå´ÖÏ¸
+			åˆ›å»ºä¸€ç§å­—ä½“
+			nameï¼š	å­—ä½“ç´¢å¼•å
+			sizeï¼š	å­—ä½“å°ºå¯¸
+			styleï¼š	å­—ä½“é£æ ¼åç§°
+			spaceï¼š	å­—ä½“å¹³å‡é—´éš”
+			weightï¼šå­—ä½“ç²—ç»†
 		*/
-		bool create(string name, int size, string style, int space = 0, int weight = FW_BOLD);
+		bool create(string name, int size, string style, int space = 0, int weight = 0);//= FW_BOLD);
 		/*
-			´ÓÅäÖÃÖĞ´´½¨»­±Ê
-			config£º	ÅäÖÃÎÄ¼ş
+			ä»é…ç½®ä¸­åˆ›å»ºç”»ç¬”
+			configï¼š	é…ç½®æ–‡ä»¶
 		*/
 		bool create_from_config(string config);
 		/*
-			»æÖÆÎÄ±¾
-			name£º	×ÖÌåË÷ÒıÃû
-			x£¬y£º	Î»ÖÃ
-			c£º	    ÑÕÉ«
-			msg£º	ÄÚÈİ
+			ç»˜åˆ¶æ–‡æœ¬
+			nameï¼š	å­—ä½“ç´¢å¼•å
+			xï¼Œyï¼š	ä½ç½®
+			cï¼š	    é¢œè‰²
+			msgï¼š	å†…å®¹
 		*/
 		bool print(string name, float x, float y, color c, string msg);
 		/*
-			É¾³ı×ÖÌå
-			name£º	×ÖÌåË÷ÒıÃû
+			åˆ é™¤å­—ä½“
+			nameï¼š	å­—ä½“ç´¢å¼•å
 		*/
 		void destroy(string name);
 		/*
-			»ñÈ¡×ÖÌåĞÅÏ¢
-			name£º	×ÖÌåË÷ÒıÃû
+			è·å–å­—ä½“ä¿¡æ¯
+			nameï¼š	å­—ä½“ç´¢å¼•å
 		*/
 		unsigned int get_char_height(string name);
-		// µÃµ½Ö¸¶¨×Ö·û´®¿í¶È
-		// name£º×ÖÌåË÷ÒıÃû
-		// msg£ºÖ¸¶¨×Ö·û´®
+		// å¾—åˆ°æŒ‡å®šå­—ç¬¦ä¸²å®½åº¦
+		// nameï¼šå­—ä½“ç´¢å¼•å
+		// msgï¼šæŒ‡å®šå­—ç¬¦ä¸²
 		unsigned int get_str_width(string name, string msg);
 	private:
 		CPenManager(const CPenManager&);

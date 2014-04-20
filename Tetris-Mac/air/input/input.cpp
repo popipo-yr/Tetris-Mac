@@ -17,11 +17,11 @@ namespace air
 	}
 	void CInput::update()
 	{
-		// ¸üĞÂ¼üÅÌ×´Ì¬
+		// æ›´æ–°é”®ç›˜çŠ¶æ€
 		memcpy(m_last_key, m_key, sizeof(m_last_key));
 		GetKeyboardState(m_key);
 
-		// ¸üĞÂÊó±ê×´Ì¬ºÍÎ»ÖÃ
+		// æ›´æ–°é¼ æ ‡çŠ¶æ€å’Œä½ç½®
 		memcpy(&m_last_mouse, &m_mouse, sizeof(m_last_mouse));
 		m_mouse[LEFT_BUTTON] = m_key[VK_LBUTTON] & 0x80;
 		m_mouse[RIGHT_BUTTON] = m_key[VK_RBUTTON] & 0x80;
@@ -32,7 +32,7 @@ namespace air
 		m_x = (float)p.x;
 		RECT rc;
 		GetClientRect(m_wnd, &rc);
-		m_y = (float)((rc.bottom - rc.top) - p.y);	// ×ª»»ÎªÔ­µãÎª×óÏÂ½ÇµÄ×ø±êÏµ
+		m_y = (float)((rc.bottom - rc.top) - p.y);	// è½¬æ¢ä¸ºåŸç‚¹ä¸ºå·¦ä¸‹è§’çš„åæ ‡ç³»
 
 		// how to get wheel's state?
 	}

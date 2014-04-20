@@ -1,4 +1,4 @@
-// 2D¾ØĞÎµØÍ¼
+// 2DçŸ©å½¢åœ°å›¾
 #ifndef map_h_
 #define map_h_
 #include <string>
@@ -8,32 +8,32 @@ namespace air
 	class CMap
 	{
 	private:
-		string m_tex;				// ÎÆÀíË÷ÒıÃû
-		unsigned int* m_p_map;		// Í¼¿éÍ¼Ïñ
-		unsigned int* m_p_flag;		// Í¼¿éÊôĞÔ
-		unsigned int m_tile_size;	// Õı·½ĞÎÍ¼¿é
-		unsigned int m_tile_num_x;	// X ·½ÏòÍ¼¿éÊı
-		unsigned int m_tile_num_y;	// Y ·½ÏòÍ¼¿éÊı
+		string m_tex;				// çº¹ç†ç´¢å¼•å
+		unsigned int* m_p_map;		// å›¾å—å›¾åƒ
+		unsigned int* m_p_flag;		// å›¾å—å±æ€§
+		unsigned int m_tile_size;	// æ­£æ–¹å½¢å›¾å—
+		unsigned int m_tile_num_x;	// X æ–¹å‘å›¾å—æ•°
+		unsigned int m_tile_num_y;	// Y æ–¹å‘å›¾å—æ•°
 		struct View
 		{
 			unsigned int left, right, bottom, top;
 			unsigned int width, hight;
 		};
-		View m_view;				// ÊÓ¿Ú
-		unsigned int m_draw_num_x;	// X ·½ÏòÒª»æÖÆµÄÍ¼¿éÊı
-		unsigned int m_draw_num_y;	// Y ·½ÏòÒª»æÖÆµÄÍ¼¿éÊı
+		View m_view;				// è§†å£
+		unsigned int m_draw_num_x;	// X æ–¹å‘è¦ç»˜åˆ¶çš„å›¾å—æ•°
+		unsigned int m_draw_num_y;	// Y æ–¹å‘è¦ç»˜åˆ¶çš„å›¾å—æ•°
 	public:
 		CMap();
 		~CMap();
-		// ¸ù¾İÅäÖÃ³õÊ¼»¯µØÍ¼
-        // p_config£º	ÅäÖÃÎÄ¼ş
-        // view_x£º	ÊÓ¿Ú¿í
-        // view_y£º	ÊÓ¿Ú¸ß
+		// æ ¹æ®é…ç½®åˆå§‹åŒ–åœ°å›¾
+        // p_configï¼š	é…ç½®æ–‡ä»¶
+        // view_xï¼š	è§†å£å®½
+        // view_yï¼š	è§†å£é«˜
 		bool init(const char* p_config, unsigned int view_w, unsigned int view_h);
-		// ÒÆ¶¯ÊÓ¿Ú
-        // x£¬y£º	ÒÆ¶¯Á¿
+		// ç§»åŠ¨è§†å£
+        // xï¼Œyï¼š	ç§»åŠ¨é‡
 		void scroll(int x, int y);
-		// »æÖÆµØÍ¼
+		// ç»˜åˆ¶åœ°å›¾
 		void draw();
 	private:
 		CMap(const CMap&);

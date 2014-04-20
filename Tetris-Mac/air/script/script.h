@@ -1,5 +1,5 @@
 /*
-	½Å±¾ÒıÇæÀà£¬LuaÊµÏÖ
+	è„šæœ¬å¼•æ“ç±»ï¼ŒLuaå®ç°
 */
 #ifndef script_h_
 #define script_h_
@@ -17,29 +17,29 @@ namespace air
 		CScript();
 		~CScript();
 		/*
-			ÔØÈë½Å±¾
-			p_file£º	½Å±¾ÎÄ¼ş
+			è½½å…¥è„šæœ¬
+			p_fileï¼š	è„šæœ¬æ–‡ä»¶
 		*/
 		void load(const char* p_file);
 		/*
-			µ÷ÓÃ½Å±¾º¯Êı
-			p_fun_name£º	½Å±¾º¯ÊıÃû
-			arg_num£º		²ÎÊıÊıÁ¿
+			è°ƒç”¨è„šæœ¬å‡½æ•°
+			p_fun_nameï¼š	è„šæœ¬å‡½æ•°å
+			arg_numï¼š		å‚æ•°æ•°é‡
 		*/
 		void call(const char* p_fun_name);
 		/*
-			´ø²ÎÊıµ÷ÓÃ½Å±¾º¯Êı
-			p_fun_name£º	½Å±¾º¯ÊıÃû
-			p_params£º		½Å±¾º¯Êı²ÎÊı
-			µ÷ÓÃÊµÀı£º	call("fun_name", "ids", 10, 20.0, "abc")
+			å¸¦å‚æ•°è°ƒç”¨è„šæœ¬å‡½æ•°
+			p_fun_nameï¼š	è„šæœ¬å‡½æ•°å
+			p_paramsï¼š		è„šæœ¬å‡½æ•°å‚æ•°
+			è°ƒç”¨å®ä¾‹ï¼š	call("fun_name", "ids", 10, 20.0, "abc")
 		*/
 		void call(const char* p_fun_name, const char* p_params, ...);
-		// µ÷ÓÃ½Å±¾º¯Êı
-		// p_func£º½Å±¾º¯ÊıÃû
-		// in_num£ºÊäÈë²ÎÊı¸öÊı
-		// p_in£ºÊäÈë²ÎÊıÊı×é
-		// out_num£ºÊä³ö²ÎÊı¸öÊı
-		// p_out£ºÊä³ö²ÎÊıÊı×é
+		// è°ƒç”¨è„šæœ¬å‡½æ•°
+		// p_funcï¼šè„šæœ¬å‡½æ•°å
+		// in_numï¼šè¾“å…¥å‚æ•°ä¸ªæ•°
+		// p_inï¼šè¾“å…¥å‚æ•°æ•°ç»„
+		// out_numï¼šè¾“å‡ºå‚æ•°ä¸ªæ•°
+		// p_outï¼šè¾“å‡ºå‚æ•°æ•°ç»„
 		void call(const char* p_func, int in_num, float* p_in, int out_num, float* p_out);
 	private:
 		void _register_func();

@@ -2,8 +2,8 @@
 #define openGL_h_
 
 #define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <gl\glu.h>
+//#include <windows.h>
+#include <GLUT/glut.h>
 
 namespace air
 {

@@ -27,7 +27,7 @@ namespace air
 		if (pen.hfont == NULL)
 			return false;
 
-		// 创建显示列表
+		// 鍒涘缓鏄剧ず鍒楄〃
 		pen.list_id = glGenLists(96);
 		if (pen.list_id == 0)
 			return false;

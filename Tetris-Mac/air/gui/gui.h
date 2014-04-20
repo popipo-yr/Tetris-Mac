@@ -8,51 +8,51 @@ using std::list;
 namespace air
 {
      ////////////////////////////////////////////////////////////////////////
-	// gui¿Ø¼ş»ùÀà
+	// guiæ§ä»¶åŸºç±»
 	class CGuiObject
 	{
 	protected:
-		unsigned int m_id;			// Î¨Ò»±êÊ¶
-		float	 m_x, m_y;			        // ¿Ø¼ş×óÏÂ½Ç×ø±ê
-		float	 m_width, m_height;	// ¿Ø¼ş³ß´ç
-		//bool	 m_visible;			        // ÊÇ·ñ¿É¼û£¬Ä¿Ç°Ã»Õâ¸öĞèÇó
-		bool m_focus;                   // ÊÇ·ñÓµÓĞ½¹µã
+		unsigned int m_id;			// å”¯ä¸€æ ‡è¯†
+		float	 m_x, m_y;			        // æ§ä»¶å·¦ä¸‹è§’åæ ‡
+		float	 m_width, m_height;	// æ§ä»¶å°ºå¯¸
+		//bool	 m_visible;			        // æ˜¯å¦å¯è§ï¼Œç›®å‰æ²¡è¿™ä¸ªéœ€æ±‚
+		bool m_focus;                   // æ˜¯å¦æ‹¥æœ‰ç„¦ç‚¹
     public:
-        // guiÏûÏ¢
+        // guiæ¶ˆæ¯
         enum { NIL, KEY_DOWN, KEY_UP, MOUSE_MOVE, MOUSE_L_DOWN, MOUSE_L_UP };
         enum { SHIFT = 1 };
         struct msg
         {
-            int type;     // ÏûÏ¢ÀàĞÍ
-            int key;      // ĞéÄâ¼üÖµ
-            int flags;    // ¼üÅÌ×´Ì¬
-            float x, y;   // Êó±êÎ»ÖÃ
+            int type;     // æ¶ˆæ¯ç±»å‹
+            int key;      // è™šæ‹Ÿé”®å€¼
+            int flags;    // é”®ç›˜çŠ¶æ€
+            float x, y;   // é¼ æ ‡ä½ç½®
         };
 	public:
-        // ¹¹Ôì¿Ø¼ş
-        // id£º     Î¨Ò»±êÊ¶
-        // x£¬y£º  Î»ÖÃ
-        // w£¬h£º ³ß´ç
+        // æ„é€ æ§ä»¶
+        // idï¼š     å”¯ä¸€æ ‡è¯†
+        // xï¼Œyï¼š  ä½ç½®
+        // wï¼Œhï¼š å°ºå¯¸
 		CGuiObject(unsigned int id, float x, float y, float w, float h);
 		virtual ~CGuiObject();
-		// ÊÇ·ñ»ñµÃ½¹µã
-		// ·µ»ØÖµ£ºtrue -- ÓĞ½¹µã / false -- ÎŞ½¹µã
+		// æ˜¯å¦è·å¾—ç„¦ç‚¹
+		// è¿”å›å€¼ï¼štrue -- æœ‰ç„¦ç‚¹ / false -- æ— ç„¦ç‚¹
 		bool is_focus() const;
-		// Ê§È¥½¹µã
+		// å¤±å»ç„¦ç‚¹
 		void lost();
-		// ·µ»Ø¿Ø¼şID
-        // ·µ»ØÖµ£º	¿Ø¼şID
+		// è¿”å›æ§ä»¶ID
+        // è¿”å›å€¼ï¼š	æ§ä»¶ID
 		unsigned int get_id() const;
-		// ´¿Ğé½Ó¿Ú ////////////////////////////////////////////////////////////////////////
-		// »æÖÆ¿Ø¼ş
+		// çº¯è™šæ¥å£ ////////////////////////////////////////////////////////////////////////
+		// ç»˜åˆ¶æ§ä»¶
 		virtual void draw() = 0;
-		// ÊÂ¼şÏìÓ¦
-		// e£ºÏûÏ¢
-		// ·µ»ØÖµ£ºÊÂ¼şÊÇ·ñ±»´¦Àí
+		// äº‹ä»¶å“åº”
+		// eï¼šæ¶ˆæ¯
+		// è¿”å›å€¼ï¼šäº‹ä»¶æ˜¯å¦è¢«å¤„ç†
 		virtual bool on_msg(const msg& e) = 0;
-		// ÅĞ¶Ï×ø±êÊÇ·ñÔÚ¿Ø¼ş·¶Î§ÄÚ
-        // x£¬y£º	Ä³µãµÄ×ø±ê
-        // ·µ»ØÖµ£º true -- µãÔÚ¿Ø¼şÄÚ / false -- µãÔÚ¿Ø¼şÍâ
+		// åˆ¤æ–­åæ ‡æ˜¯å¦åœ¨æ§ä»¶èŒƒå›´å†…
+        // xï¼Œyï¼š	æŸç‚¹çš„åæ ‡
+        // è¿”å›å€¼ï¼š true -- ç‚¹åœ¨æ§ä»¶å†… / false -- ç‚¹åœ¨æ§ä»¶å¤–
 		virtual bool is_over(float x, float y) = 0;
 	private:
 		CGuiObject();
@@ -60,7 +60,7 @@ namespace air
 		CGuiObject& operator =(const CGuiObject&);
 	};
 	////////////////////////////////////////////////////////////////////////
-	// gui¹ÜÀíÆ÷
+	// guiç®¡ç†å™¨
 	class CGuiSystem
 	{
 	private:
@@ -69,34 +69,34 @@ namespace air
 	public:
 		CGuiSystem();
 		~CGuiSystem();
-        // Ìí¼Ó¿Ø¼ş
-        // p_obj£º ¿Ø¼ş¶ÔÏó
+        // æ·»åŠ æ§ä»¶
+        // p_objï¼š æ§ä»¶å¯¹è±¡
 		void add(CGuiObject* p_obj);
-		// ´ÓÅäÖÃ³õÊ¼»¯GUI
-        // p_config£º	ÅäÖÃÎÄ¼ş
+		// ä»é…ç½®åˆå§‹åŒ–GUI
+        // p_configï¼š	é…ç½®æ–‡ä»¶
 		bool load_from_config(const char* p_config);
-		//	»æÖÆËùÓĞ¿Ø¼ş
+		//	ç»˜åˆ¶æ‰€æœ‰æ§ä»¶
 		void draw();
-		// ÊäÈëÏûÏ¢´¦Àí
-		// ·µ»ØÖµ£º ¿Ø¼şID
+		// è¾“å…¥æ¶ˆæ¯å¤„ç†
+		// è¿”å›å€¼ï¼š æ§ä»¶ID
 		enum { NO_MSG = 0xffff };
 		unsigned int process_msg();
-		 // È¡ÏûËùÓĞ¿Ø¼şµÄ½¹µã
+		 // å–æ¶ˆæ‰€æœ‰æ§ä»¶çš„ç„¦ç‚¹
 		void all_lost();
-		// ·µ»ØÒ»¸ö¿Ø¼ş
+		// è¿”å›ä¸€ä¸ªæ§ä»¶
 		CGuiObject* get(unsigned int id);
 	private:
 		CGuiSystem(const CGuiSystem&);
 		CGuiSystem& operator=(const CGuiSystem&);
 	};
 	////////////////////////////////////////////////////////////////////////
-	// ÎÄ±¾±êÇ©
+	// æ–‡æœ¬æ ‡ç­¾
 	class CLabel : public CGuiObject
 	{
 	private:
-		string m_text;				    // ÎÄ±¾ÄÚÈİ
-		string m_pen;				// ×ÖÌåË÷ÒıÃû
-		color m_text_color;		    // ÎÄ±¾ÑÕÉ«
+		string m_text;				    // æ–‡æœ¬å†…å®¹
+		string m_pen;				// å­—ä½“ç´¢å¼•å
+		color m_text_color;		    // æ–‡æœ¬é¢œè‰²
 	public:
 		CLabel(unsigned int id, float x, float y, string text, string pen, color c);
 		virtual void draw();
@@ -108,13 +108,13 @@ namespace air
 		CLabel& operator=(const CLabel&);
 	};
 	////////////////////////////////////////////////////////////////////////
-	// °´Å¥
+	// æŒ‰é’®
 	class CButton : public CGuiObject
 	{
 	private:
-		string	m_up_tex;			// µ¯ÆğÎÆÀíÃû
-		string	m_down_tex;		// °´ÏÂÎÆÀíÃû
-		string	m_over_tex;		// »¬¹ıÎÆÀíÃû
+		string	m_up_tex;			// å¼¹èµ·çº¹ç†å
+		string	m_down_tex;		// æŒ‰ä¸‹çº¹ç†å
+		string	m_over_tex;		// æ»‘è¿‡çº¹ç†å
 		enum ButtonState	{ B_UP, B_DOWN, B_OVER };
 		ButtonState	m_state;
 	public:
@@ -128,22 +128,22 @@ namespace air
 		CButton& operator=(const CButton&);
 	};
 	////////////////////////////////////////////////////////////////////////
-	// ±à¼­¿ò
+	// ç¼–è¾‘æ¡†
 	class CEdit : public CGuiObject
 	{
     private:
-        string m_pen;   // »­±ÊÃû³Æ
-        string m_result;   // ±à¼­¿òÎÄ±¾
+        string m_pen;   // ç”»ç¬”åç§°
+        string m_result;   // ç¼–è¾‘æ¡†æ–‡æœ¬
     public:
         CEdit(unsigned int id, float x, float y, float width, float height, string pen);
         ~CEdit();
         virtual void draw();
 		virtual bool on_msg(const msg& e);
 		virtual bool is_over(float x, float y);
-		// È¡µÃ±à¼­¿òÊäÈëµÄÄÚÈİ
+		// å–å¾—ç¼–è¾‘æ¡†è¾“å…¥çš„å†…å®¹
 		string content() const;
     private:
-        bool is_full() const;   // ±à¼­¿òÊÇ·ñÒÑÂú
+        bool is_full() const;   // ç¼–è¾‘æ¡†æ˜¯å¦å·²æ»¡
         CEdit();
         CEdit(const CEdit&);
         CEdit& operator=(const CEdit&);

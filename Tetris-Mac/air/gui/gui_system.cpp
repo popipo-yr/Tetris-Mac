@@ -45,7 +45,7 @@ namespace air
 			stringstream ss(buff);
 			ss >> type;
 
-			// gui ·ÖÀà³õÊ¼»¯
+			// gui åˆ†ç±»åˆå§‹åŒ–
 			if (type == "button")
 			{
 				string id, x, y, width, height, up, down, over;
@@ -82,7 +82,7 @@ namespace air
         int k = 0;
 		for (GuiList::iterator it = m_gui_object_list.begin(); it != m_gui_object_list.end(); it++)
 		{
-		    // ¹¹Ôì¼üÅÌÏûÏ¢
+		    // æ„é€ é”®ç›˜æ¶ˆæ¯
 		    memset(&e, 0, sizeof(e));
 		    k = g_p_input->get_key_down();
 		    if (k != 0 && (*it)->is_focus())
@@ -95,7 +95,7 @@ namespace air
             e.key = k;
 		    if (e.type != CGuiObject::NIL && (*it)->on_msg(e))
                 return (*it)->get_id();
-		    // ¹¹ÔìÊó±êÏûÏ¢
+		    // æ„é€ é¼ æ ‡æ¶ˆæ¯
 		    memset(&e, 0, sizeof(e));
 		    e.x = g_p_input->get_mouse_x();
 		    e.y = g_p_input->get_mouse_y();

@@ -8,47 +8,47 @@ namespace air
 	class COpenGL
 	{
 	public:
-		// 2D Ä£Ê½£º ÆÁÄ»×ø±êÏµÎªµÑ¿¨¶û×ø±êÏµµÚ¶şÏóÏŞ£¬×óÏÂ½ÇÎªÔ­µã
-		// 3D Ä£Ê½£º ÓÒÊÖ×ø±êÏµ
+		// 2D æ¨¡å¼ï¼š å±å¹•åæ ‡ç³»ä¸ºç¬›å¡å°”åæ ‡ç³»ç¬¬äºŒè±¡é™ï¼Œå·¦ä¸‹è§’ä¸ºåŸç‚¹
+		// 3D æ¨¡å¼ï¼š å³æ‰‹åæ ‡ç³»
 		enum Mode	{ _2D, _3D };
 	private:
-		HGLRC m_hrc;
+		//HGLRC m_hrc;
 		int	  m_width, m_height;
 		Mode  m_mode;
 		void _init();
 	public:
 		/*
-			¹¹½¨ OpenGL äÖÈ¾ÏµÍ³
-			hdc£º			Éè±¸ÉÏÏÂÎÄ
-			width£¬height£º	´°¿Ú³ß´ç
+			æ„å»º OpenGL æ¸²æŸ“ç³»ç»Ÿ
+			hdcï¼š			è®¾å¤‡ä¸Šä¸‹æ–‡
+			widthï¼Œheightï¼š	çª—å£å°ºå¯¸
 		*/
-		COpenGL(HDC hdc, int width, int height);
+		//COpenGL(HDC hdc, int width, int height);
 		~COpenGL();
 		/*
-			´°¿Ú³ß´ç¸Ä±ä
-			new_width£¬new_height£º	ĞÂµÄ´°¿Ú³ß´ç
+			çª—å£å°ºå¯¸æ”¹å˜
+			new_widthï¼Œnew_heightï¼š	æ–°çš„çª—å£å°ºå¯¸
 		*/
 		void resize(int new_width, int new_height);
 		/*
-			Ã¿Ö¡µ÷ÓÃ£¬ÇåÆÁºÍ´íÎó¼ì²â
+			æ¯å¸§è°ƒç”¨ï¼Œæ¸…å±å’Œé”™è¯¯æ£€æµ‹
 		*/
 		void frame() const;
 		/*
-			ÉèÖÃäÖÈ¾Ä£Ê½
+			è®¾ç½®æ¸²æŸ“æ¨¡å¼
 		*/
 		void twoD();
 		void threeD();
 		/*
-			½»»»»º´æ
-			hdc£º		½øĞĞ½»»»µÄÉè±¸ÉÏÏÂÎÄ
+			äº¤æ¢ç¼“å­˜
+			hdcï¼š		è¿›è¡Œäº¤æ¢çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 		*/
-		void swap_buff(HDC hdc) const;
+		//void swap_buff(HDC hdc) const;
 		/*
-			·µ»ØäÖÈ¾Ä£Ê½
+			è¿”å›æ¸²æŸ“æ¨¡å¼
 		*/
 		Mode get_mode() const;
 		/*
-			µÃµ½ÊÓ¿Ú¸ß
+			å¾—åˆ°è§†å£é«˜
 		*/
 		int get_height() const;
 	private:
@@ -65,43 +65,43 @@ namespace air
 		CSurface();
 		~CSurface();
 		/*
-			»æÖÆÏß¶Î
-			start_x£¬start_y£º	Ïß¶ÎÆğµã
-			end_x£¬end_y£º		Ïß¶ÎÖÕµã
-			color£º				ÑÕÉ«
-			size£º				Ïß¶Î´ÖÏ¸
+			ç»˜åˆ¶çº¿æ®µ
+			start_xï¼Œstart_yï¼š	çº¿æ®µèµ·ç‚¹
+			end_xï¼Œend_yï¼š		çº¿æ®µç»ˆç‚¹
+			colorï¼š				é¢œè‰²
+			sizeï¼š				çº¿æ®µç²—ç»†
 		*/
 		bool draw_line(float start_x, float start_y, float end_x, float end_y, color c, float size = 1.0f);
 		/*
-			»æÖÆ¾ØĞÎ
-			x£¬y£º			¾ØĞÎ×øÏÂ½Ç×ø±ê
-			width£¬height£º	¾ØĞÎ¿íºÍ¸ß
-			color£º			ÑÕÉ«
-			fill£º			ÊÇ·ñÌî³ä
+			ç»˜åˆ¶çŸ©å½¢
+			xï¼Œyï¼š			çŸ©å½¢åä¸‹è§’åæ ‡
+			widthï¼Œheightï¼š	çŸ©å½¢å®½å’Œé«˜
+			colorï¼š			é¢œè‰²
+			fillï¼š			æ˜¯å¦å¡«å……
 		*/
 		bool draw_rect(float x, float y, float width, float height, color c, bool fill = true);
 		/*
-			»æÖÆÔ²
-			x£¬y£º		Ô²ĞÄ×ø±ê
-			radius£º	°ë¾¶
-			color£º		ÑÕÉ«
-			fill£º		ÊÇ·ñÌî³ä
+			ç»˜åˆ¶åœ†
+			xï¼Œyï¼š		åœ†å¿ƒåæ ‡
+			radiusï¼š	åŠå¾„
+			colorï¼š		é¢œè‰²
+			fillï¼š		æ˜¯å¦å¡«å……
 		*/
 		bool draw_circle(float x, float y, float radius, color c, bool fill = true);
 		/*
-			»æÖÆÎÆÀí
-			p_name£º				ÎÆÀíË÷ÒıÃû
-			x£¬y£º					ÆÁÄ»×ø±ê
-			sub_x£¬sub_y£º			ÎÆÀíÆğµã×ø±ê
-			sub_width£¬sub_height£º	ÎÆÀí³ß´ç
+			ç»˜åˆ¶çº¹ç†
+			p_nameï¼š				çº¹ç†ç´¢å¼•å
+			xï¼Œyï¼š					å±å¹•åæ ‡
+			sub_xï¼Œsub_yï¼š			çº¹ç†èµ·ç‚¹åæ ‡
+			sub_widthï¼Œsub_heightï¼š	çº¹ç†å°ºå¯¸
 		*/
 		bool draw_texture(const char* p_name, float x, float y, float sub_x = 0.0f, float sub_y  = 0.0f, float sub_width = 0.0f, float sub_height = 0.0f);
 		/*
-			»æÖÆ×Ó»­Ãæ£¬´øÓĞ alpha ²âÊÔ
-			p_name£º				ÎÆÀíË÷ÒıÃû
-			x£¬y£º					äÖÈ¾ÆÁÄ»Î»ÖÃ
-			sub_x£¬sub_y£º			ÎÆÀíÆğµã×ø±ê
-			sub_width£¬sub_height£º	ÎÆÀí³ß´ç
+			ç»˜åˆ¶å­ç”»é¢ï¼Œå¸¦æœ‰ alpha æµ‹è¯•
+			p_nameï¼š				çº¹ç†ç´¢å¼•å
+			xï¼Œyï¼š					æ¸²æŸ“å±å¹•ä½ç½®
+			sub_xï¼Œsub_yï¼š			çº¹ç†èµ·ç‚¹åæ ‡
+			sub_widthï¼Œsub_heightï¼š	çº¹ç†å°ºå¯¸
 		*/
 		bool draw_sprite(const char* p_name, float x, float y, float sub_x = 0.0f, float sub_y = 0.0f, float sub_width = 0.0f, float sub_height = 0.0f);
 	private:

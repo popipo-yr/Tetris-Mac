@@ -77,7 +77,7 @@ namespace air
 	}
 	void COpenGL::swap_buff(int hdc) const
 	{
-        glutSwapBuffers();
+        //glutSwapBuffers();
 	}
 	COpenGL::Mode COpenGL::get_mode() const
 	{

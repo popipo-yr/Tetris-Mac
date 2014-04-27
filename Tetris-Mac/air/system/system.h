@@ -6,7 +6,12 @@
 #include <GLUT/GLUT.h>
 #include <string>
 #include <sys/time.h>
+
+#include <GLFW/glfw3.h>
+
 using std::string;
+
+static GLFWwindow* _p_window;
 
 namespace air
 {

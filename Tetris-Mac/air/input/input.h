@@ -6,6 +6,10 @@
 #include <map>
 #include <string>
 #include <GLUT/GLUT.h>
+#include <GLFW/glfw3.h>
+
+#include <sys/time.h>
+
 using std::map;
 using std::string;
 
@@ -39,9 +43,11 @@ namespace air
 
 		typedef map<string, unsigned int>   KeyNameMap;
 		KeyNameMap m_name_to_key;
+        
+        struct timeval last_time;
 
 	public:
-		CInput(int wnd);//HWND wnd);
+		CInput(GLFWwindow* wnd);//HWND wnd);
 		~CInput();
 		//	更新设备状态
 		void update();
@@ -58,6 +64,7 @@ namespace air
 		//	根据名字查询输入状态
 		//	name：	名字
 		bool key_down_by_name(string name) const;
+        bool key_down_by_name_clear(string name) ;
 		bool key_up_by_name(string name) const;
         // 得到某一时刻按下的某个按键
         // 返回值：键值
@@ -65,6 +72,7 @@ namespace air
 		int get_key_up() const;
         
         void setKeyDown(unsigned int key);
+        void setKeyUp(unsigned int key);
         
 	private:
 		void _bulid_key_name_table();

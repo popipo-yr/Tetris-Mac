@@ -37,31 +37,37 @@ end
 function main_update()
 
 	state = g.GAME
-	if state == g.GAME then
+	g.key_flag = 1
+		if state == g.GAME then
 		if air.key_up("down") then
-			g.update_interval = 0.2
-		elseif air.key_down("down") then
+			g.update_interval = 0.1
+		end
+		if air.key_down("down") then
 			g.update_interval = 0.005
-		elseif air.key_up("left") or air.key_up("right") or air.key_up("up") then
-			g.key_flag = 1
+		--elseif air.key_up("left") or air.key_up("right") or air.key_up("up") then
+		--	g.key_flag = 1
 		end
-		local input_delay = 0
+		local input_delay = 0.02
 		if g.key_flag == 0 then
-			input_delay = 0.15
+			input_delay = 0.02
 		end
-		if input_timer_pass() > input_delay then
-			if air.key_down("left") then
+		--if input_timer_pass() > input_delay then
+			if air.key_down_clear("left") then
 				move_left()
 				g.key_flag = 0
-			elseif air.key_down("right") then
+				--return
+			elseif air.key_down_clear("right") then
 				move_right()
 				g.key_flag = 0
-			elseif air.key_down("up") then
+				--return
+			elseif air.key_down_clear("up") then
 				rotate_cur_shape()
 				g.key_flag = 0
+				--return
 			end
 			input_timer_reset()
-		end
+		--end
+
 		if timer_pass() > g.update_interval then
 			move_down_check()
 			update_cur_shape()
@@ -69,6 +75,38 @@ function main_update()
 			timer_reset()
 		end
 	elseif state == g.MENU then
+	-- if state == g.GAME then
+	-- 	if air.key_up("down") then
+	-- 		g.update_interval = 0.2
+	-- 	elseif air.key_down("down") then
+	-- 		g.update_interval = 0.005
+	-- 	elseif air.key_up("left") or air.key_up("right") or air.key_up("up") then
+	-- 		g.key_flag = 1
+	-- 	end
+	-- 	local input_delay = 0
+	-- 	if g.key_flag == 0 then
+	-- 		input_delay = 0.15
+	-- 	end
+	-- 	if input_timer_pass() > input_delay then
+	-- 		if air.key_down("left") then
+	-- 			move_left()
+	-- 			g.key_flag = 0
+	-- 		elseif air.key_down("right") then
+	-- 			move_right()
+	-- 			g.key_flag = 0
+	-- 		elseif air.key_down("up") then
+	-- 			rotate_cur_shape()
+	-- 			g.key_flag = 0
+	-- 		end
+	-- 		input_timer_reset()
+	-- 	end
+	-- 	if timer_pass() > g.update_interval then
+	-- 		move_down_check()
+	-- 		update_cur_shape()
+	-- 		check_score(score)
+	-- 		timer_reset()
+	-- 	end
+	-- elseif state == g.MENU then
 		if g.key_flag == 1 then
 			if input_timer_pass() < 0.3 then
 				return

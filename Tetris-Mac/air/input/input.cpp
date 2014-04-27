@@ -1,5 +1,8 @@
 #include "input.h"
 
+#include <GLFW/glfw3.h>
+#include "system.h"
+
 
 
 
@@ -18,37 +21,73 @@ namespace air
         g_p_input->setKeyDown(key);
     }
 
+    void GLFWkeyfun(GLFWwindow* win,int key,int specialkey,int passed,int mid){
+    
+        if (passed == 1) {
+            
+            g_p_input->setKeyDown(key);
+            
+        }else{
+        
+            g_p_input->setKeyUp(key);
+        
+        }
+    
+    }
+    
     
 	CInput* g_p_input = NULL;
-	CInput::CInput(int wnd)
+	CInput::CInput(GLFWwindow* wnd)
 	{
-		m_wnd = wnd;
+		//m_wnd = wnd;
 		m_x = m_y = m_wheel = 0.0f;
 		memset(&m_mouse, 0, sizeof(m_mouse));
 		memset(&m_last_mouse, 0, sizeof(m_last_mouse));
 		memset(&m_key, 0, sizeof(m_key));
 		memset(&m_last_key, 0, sizeof(m_last_key));
 		_bulid_key_name_table();
+                
         
-        // here are the new entries
-        glutKeyboardFunc(processNormalKeys);
-        glutSpecialFunc(processSpecialKeys);
+        glfwSetKeyCallback(wnd, GLFWkeyfun);
+        
+        memset(m_key, 0, sizeof(m_key));
+        
 	}
 	CInput::~CInput()
 	{
 	}
+    
+   
+    static unsigned long repeate =  1*1000*900;
+    static bool init  = false;
+    
 	void CInput::update()
 	{
 		// 更新键盘状态
-		memcpy(m_last_key, m_key, sizeof(m_last_key));
         
+        if (!init) {
+            
+            gettimeofday(&last_time, NULL);
+            init   = true;
+            return;
+        }
         
-		//GetKeyboardState(m_key);
-        memset(m_key, 0, sizeof(m_key));
+        struct timeval tpend;
+        gettimeofday(&tpend, NULL);
+        unsigned long dt = tpend.tv_usec - last_time.tv_usec;
+        
+        if (dt > repeate) {
+            
+            memcpy(m_key, m_last_key, sizeof(m_key));
+            gettimeofday(&last_time, NULL);
+            //memset(m_last_key, 0, sizeof(m_last_key));
+        }
+        
+
 
 
 		// 更新鼠标状态和位置
-		memcpy(&m_last_mouse, &m_mouse, sizeof(m_last_mouse));
+//		memcpy(&m_last_mouse, &m_mouse, sizeof(m_last_mouse));
 //		m_mouse[LEFT_BUTTON] = m_key[VK_LBUTTON] & 0x80;
 //		m_mouse[RIGHT_BUTTON] = m_key[VK_RBUTTON] & 0x80;
 //		m_mouse[MIDDLE_BUTTON] = m_key[VK_MBUTTON] & 0x80;
@@ -64,11 +103,15 @@ namespace air
 	}
 	bool CInput::key_down(unsigned int key) const
 	{
-        //return true;
+        bool ret = (m_key[key] == 0xff);
+
+
+        return  ret;
 		return (m_key[key] & 0x80) != 0;
 	}
 	bool CInput::key_up(unsigned int key) const
 	{
+        return m_key[key] == 0x00;
 		return (!(m_key[key] & 0x80) && m_key[key] != m_last_key[key]);
 	}
 	bool CInput::mouse_down(unsigned int button) const
@@ -93,11 +136,33 @@ namespace air
 	}
 	bool CInput::key_down_by_name(string name) const
 	{
+       
 		KeyNameMap::const_iterator it = m_name_to_key.find(name);
 		if (it == m_name_to_key.end())
 			return false;
 		return key_down(it->second);
 	}
+    
+    bool CInput::key_down_by_name_clear(string name){
+        
+        KeyNameMap::const_iterator it = m_name_to_key.find(name);
+		if (it == m_name_to_key.end())
+			return false;
+        
+        bool ret = key_down(it->second);
+        
+        if (ret) {
+            
+            m_key[it->second] = 0x00;
+            
+            m_last_key[it->second] = 0xff;
+        }
+        
+
+        
+		return ret;
+    
+    }
 	bool CInput::key_up_by_name(string name) const
 	{
 		KeyNameMap::const_iterator it = m_name_to_key.find(name);
@@ -128,10 +193,10 @@ namespace air
 		m_name_to_key["enter"] = VK_RETURN;
 		m_name_to_key["space"] = VK_SPACE;
         
-		m_name_to_key["up"] = GLUT_KEY_UP;
-		m_name_to_key["down"] = GLUT_KEY_DOWN;
-		m_name_to_key["left"] = GLUT_KEY_LEFT;
-		m_name_to_key["right"] = GLUT_KEY_RIGHT;
+		m_name_to_key["up"] = GLFW_KEY_UP;
+		m_name_to_key["down"] = GLFW_KEY_DOWN;
+		m_name_to_key["left"] = GLFW_KEY_LEFT;
+		m_name_to_key["right"] = GLFW_KEY_RIGHT;
 
 		// copy from winuser.h
 		// VK_0 - VK_9 are the same as ASCII '0' - '9' (0x30 - 0x39)
@@ -142,6 +207,15 @@ namespace air
     void CInput::setKeyDown(unsigned int key){
         
         m_key[key] = 0xFF;
+        
+        m_last_key[key] = 0xff;
+    }
+    
+    void CInput::setKeyUp(unsigned int key){
+        
+        m_key[key] = 0x00;
+        
+        m_last_key[key] = 0x00;
     }
 
     

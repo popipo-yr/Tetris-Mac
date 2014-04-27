@@ -20,6 +20,13 @@
 		1A054F29190372AA00B9953B /* ini.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F0E190372AA00B9953B /* ini.cpp */; };
 		1A054F2A190372AA00B9953B /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F10190372AA00B9953B /* map.cpp */; };
 		1A054F2B190372AA00B9953B /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A054F13190372AA00B9953B /* timer.cpp */; };
+		1A43E02E190CB45B0066E6C7 /* GLFW in Resources */ = {isa = PBXBuildFile; fileRef = 1A43E02C190CB45B0066E6C7 /* GLFW */; };
+		1A43E02F190CB45B0066E6C7 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A43E02D190CB45B0066E6C7 /* libglfw3.a */; };
+		1A43E034190CB6450066E6C7 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A43E033190CB6450066E6C7 /* IOKit.framework */; };
+		1A43E036190CB66C0066E6C7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A43E035190CB66C0066E6C7 /* CoreFoundation.framework */; };
+		1A43E038190CB6820066E6C7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A43E037190CB6820066E6C7 /* CoreVideo.framework */; };
+		1A43E03A190CB6D40066E6C7 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A43E039190CB6D40066E6C7 /* ApplicationServices.framework */; };
+		1A43E03B190CB7080066E6C7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4F41001902B5C0002DD6EE /* AppKit.framework */; };
 		1A4F41081902B5C0002DD6EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F41061902B5C0002DD6EE /* InfoPlist.strings */; };
 		1A4F410A1902B5C0002DD6EE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A4F41091902B5C0002DD6EE /* main.cpp */; };
 		1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F410C1902B5C0002DD6EE /* Credits.rtf */; };
@@ -100,6 +107,13 @@
 		1A054F12190372AA00B9953B /* single.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = single.h; sourceTree = "<group>"; };
 		1A054F13190372AA00B9953B /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
 		1A054F14190372AA00B9953B /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		1A43E02C190CB45B0066E6C7 /* GLFW */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GLFW; sourceTree = "<group>"; };
+		1A43E02D190CB45B0066E6C7 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
+		1A43E031190CB6380066E6C7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1A43E033190CB6450066E6C7 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		1A43E035190CB66C0066E6C7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		1A43E037190CB6820066E6C7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1A43E039190CB6D40066E6C7 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		1A4F40FA1902B5C0002DD6EE /* Tetris-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tetris-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4F40FD1902B5C0002DD6EE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1A4F41001902B5C0002DD6EE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -137,11 +151,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A43E03B190CB7080066E6C7 /* AppKit.framework in Frameworks */,
+				1A43E03A190CB6D40066E6C7 /* ApplicationServices.framework in Frameworks */,
+				1A43E038190CB6820066E6C7 /* CoreVideo.framework in Frameworks */,
+				1A43E036190CB66C0066E6C7 /* CoreFoundation.framework in Frameworks */,
+				1A43E034190CB6450066E6C7 /* IOKit.framework in Frameworks */,
 				1A4F413A1902B936002DD6EE /* libstdc++.dylib in Frameworks */,
 				1A7E10A41903A1AE00AD6FA2 /* liblua5.1.dylib in Frameworks */,
 				1A4F41341902B605002DD6EE /* OpenGL.framework in Frameworks */,
 				1A4F41321902B5FF002DD6EE /* GLUT.framework in Frameworks */,
 				1A7E109F19039F7400AD6FA2 /* liblua5.1.a in Frameworks */,
+				1A43E02F190CB45B0066E6C7 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +298,15 @@
 			path = tool;
 			sourceTree = "<group>";
 		};
+		1A43E026190CB4460066E6C7 /* GLFW */ = {
+			isa = PBXGroup;
+			children = (
+				1A43E02C190CB45B0066E6C7 /* GLFW */,
+				1A43E02D190CB45B0066E6C7 /* libglfw3.a */,
+			);
+			path = GLFW;
+			sourceTree = "<group>";
+		};
 		1A4F40F11902B5C0002DD6EE = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +329,11 @@
 		1A4F40FC1902B5C0002DD6EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A43E039190CB6D40066E6C7 /* ApplicationServices.framework */,
+				1A43E037190CB6820066E6C7 /* CoreVideo.framework */,
+				1A43E035190CB66C0066E6C7 /* CoreFoundation.framework */,
+				1A43E033190CB6450066E6C7 /* IOKit.framework */,
+				1A43E031190CB6380066E6C7 /* CoreAudio.framework */,
 				1A4F41391902B936002DD6EE /* libstdc++.dylib */,
 				1A4F41331902B605002DD6EE /* OpenGL.framework */,
 				1A4F41311902B5FF002DD6EE /* GLUT.framework */,
@@ -323,6 +357,7 @@
 		1A4F41031902B5C0002DD6EE /* Tetris-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				1A43E026190CB4460066E6C7 /* GLFW */,
 				1A054ED3190372AA00B9953B /* air */,
 				1A4F41371902B73B002DD6EE /* res */,
 				1A4F41151902B5C0002DD6EE /* Images.xcassets */,
@@ -450,6 +485,7 @@
 			files = (
 				1A7E10A51903A41E00AD6FA2 /* liblua5.1.dylib in Resources */,
 				1A4F41081902B5C0002DD6EE /* InfoPlist.strings in Resources */,
+				1A43E02E190CB45B0066E6C7 /* GLFW in Resources */,
 				1A4F41161902B5C0002DD6EE /* Images.xcassets in Resources */,
 				1A4F410E1902B5C0002DD6EE /* Credits.rtf in Resources */,
 				1A4F41381902B73B002DD6EE /* res in Resources */,
@@ -633,6 +669,11 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris-Mac/Tetris-Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Tetris-Mac/GLFW",
+				);
 				INFOPLIST_FILE = "Tetris-Mac/Tetris-Mac-Info.plist";
 				LD_DYLIB_INSTALL_NAME = "";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
@@ -640,6 +681,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/Tetris-Mac/air/music/fmod",
 					"$(SRCROOT)/Tetris-Mac/air/script/lua",
+					"$(PROJECT_DIR)/Tetris-Mac/GLFW/GLFW",
+					"$(PROJECT_DIR)/Tetris-Mac/GLFW",
 				);
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "";
@@ -657,6 +700,11 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tetris-Mac/Tetris-Mac-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/Tetris-Mac/GLFW",
+				);
 				INFOPLIST_FILE = "Tetris-Mac/Tetris-Mac-Info.plist";
 				LD_DYLIB_INSTALL_NAME = "";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks/";
@@ -664,6 +712,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/Tetris-Mac/air/music/fmod",
 					"$(SRCROOT)/Tetris-Mac/air/script/lua",
+					"$(PROJECT_DIR)/Tetris-Mac/GLFW/GLFW",
+					"$(PROJECT_DIR)/Tetris-Mac/GLFW",
 				);
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = "";

@@ -6,7 +6,10 @@
 #include "../script/script.h"
 #include "../music/music.h"
 #include <unistd.h>
+#include <GLFW/glfw3.h>
 //#include <mmsystem.h>
+
+
 
 //LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
 namespace air
@@ -48,14 +51,16 @@ namespace air
                 break;
 		}
 	}
-	void CSystem::run()
+    
+    
+    
+    void CSystem::run()
 	{
 	    //_create_window();
 		if (m_p_init_func != NULL)
 			m_p_init_func();
 		g_p_openGL->frame();
-        
-        return;
+
         
 		// 主循环
 		//MSG msg;
@@ -64,22 +69,25 @@ namespace air
         
         gettimeofday(&m_lastTime,NULL);
         
-		for (;;)
-		{
-//			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
-//			{
-//			    if (msg.message == WM_QUIT)
-//                    break;
-//				TranslateMessage(&msg);
-//				DispatchMessage(&msg);
-//			}
-			//else
-			{
-			    if (!m_paused)
+
+            
+            /* Loop until the user closes the window */
+            while (!glfwWindowShouldClose(_p_window))
+            {
+                /* Render here */
+                
+
+                
+                
+               // if (!m_paused)
+               // {
+                struct timeval tpend;
+                gettimeofday(&tpend, NULL);
+                unsigned long dt = tpend.tv_usec - m_lastTime.tv_usec;
+                if (dt >= m_fixed_delta)
                 {
-                    unsigned int dt = time(0) - last;
-                    if (dt > m_fixed_delta)
-                    {
+                    gettimeofday(&m_lastTime, NULL);
+                    
                         last = time(0);
                         // 更新子系统
                         //g_p_music->update();
@@ -98,22 +106,92 @@ namespace air
                         g_p_openGL->swap_buff(m_hdc);
                         
                         //g_p_input->update();
-                    }
-//                    else
-//                    {
-//                        if (dt + 5 < m_fixed_delta) ;
-//                        
-//                        sleep(1);
-//                        //Sleep(1);
-//                    }
+                        
+                        
+                        /* Swap front and back buffers */
+                        glfwSwapBuffers(_p_window);
+                        
+                        /* Poll for and process events */
+                        glfwPollEvents();
+                        
+                    
+                    } else {
+                                   //if (dt + 5 < m_fixed_delta) ;
+                   
+                                sleep(1);
+                        }
                 }
-                else
-                {
-                    //Sleep(1);
-                }
-			}
-		}
+            //}
+
+
 	}
+
+//	void CSystem::run()
+//	{
+//	    //_create_window();
+//		if (m_p_init_func != NULL)
+//			m_p_init_func();
+//		g_p_openGL->frame();
+//        
+//        return;
+//        
+//		// 主循环
+//		//MSG msg;
+//		//unsigned long last = timeGetTime();
+//        unsigned long last = 0;
+//        
+//        gettimeofday(&m_lastTime,NULL);
+//        
+//		for (;;)
+//		{
+////			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
+////			{
+////			    if (msg.message == WM_QUIT)
+////                    break;
+////				TranslateMessage(&msg);
+////				DispatchMessage(&msg);
+////			}
+//			//else
+//			{
+//			    if (!m_paused)
+//                {
+//                    unsigned int dt = time(0) - last;
+//                    if (dt > m_fixed_delta)
+//                    {
+//                        last = time(0);
+//                        // 更新子系统
+//                        //g_p_music->update();
+//                        g_p_input->update();
+//                        // 游戏逻辑
+//                        if (m_p_frame_func != NULL)
+//                            m_p_frame_func();
+//                        // 渲染逻辑
+//                        g_p_openGL->frame();
+//                        g_p_openGL->twoD();
+//                        if (m_p_draw_func != NULL)
+//                            m_p_draw_func();
+//                        g_p_openGL->threeD();
+//                        if (m_p_render_func != NULL)
+//                            m_p_render_func();
+//                        g_p_openGL->swap_buff(m_hdc);
+//                        
+//                        //g_p_input->update();
+//                    }
+////                    else
+////                    {
+////                        if (dt + 5 < m_fixed_delta) ;
+////                        
+////                        sleep(1);
+////                        //Sleep(1);
+////                    }
+//                }
+//                else
+//                {
+//                    //Sleep(1);
+//                }
+//			}
+//		}
+//	}
     
     void CSystem::loop(){
         
@@ -183,67 +261,32 @@ namespace air
 //	{
 //		return m_hdc;
 //	}
+    
+    
+    
 	void CSystem::_create_window()
 	{
-//	    HINSTANCE hinstance = GetModuleHandleA(NULL);
-//		WNDCLASSA wc;
-//		wc.style = CS_HREDRAW | CS_VREDRAW;
-//		wc.lpfnWndProc = WndProc;
-//		wc.cbClsExtra = 0;
-//		wc.cbWndExtra = 0;
-//		wc.hInstance = hinstance;
-//		wc.hIcon = LoadIcon(0, IDI_APPLICATION);
-//		wc.hCursor = LoadCursor(0, IDC_ARROW);
-//		wc.hbrBackground = 0;
-//		wc.lpszMenuName = 0;
-//		wc.lpszClassName = "yqq";
-//		if (!RegisterClassA(&wc))
-//            _err();
-//		int width = m_win_width + GetSystemMetrics(SM_CXFIXEDFRAME) * 2;
-//		int height = m_win_height + GetSystemMetrics(SM_CYFIXEDFRAME) * 2 + GetSystemMetrics(SM_CYCAPTION);
-//		int xpos = (GetSystemMetrics(SM_CXSCREEN) - width) / 2;
-//		int ypos = (GetSystemMetrics(SM_CYSCREEN) - height) / 2;
-//		m_hwnd = CreateWindowA("yqq", m_title.c_str(), WS_POPUPWINDOW | WS_CAPTION | WS_MINIMIZEBOX, xpos, ypos, width, height, NULL, NULL, hinstance, NULL);
-//		if (!m_hwnd)
-//            _err();
-//		PIXELFORMATDESCRIPTOR pfd =
-//		{
-//			sizeof(PIXELFORMATDESCRIPTOR),
-//			1,
-//			PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
-//			PFD_TYPE_RGBA,
-//			32,
-//			0, 0, 0, 0, 0, 0,
-//			0,
-//			0,
-//			0,
-//			0, 0, 0, 0,
-//			16,
-//			0,
-//			0,
-//			PFD_MAIN_PLANE,
-//			0,
-//			0, 0, 0
-//		};
-//		unsigned int pixel_format = 0;
-//		if (!(m_hdc = GetDC(m_hwnd)))
-//			_err();
-//		if (!(pixel_format = ChoosePixelFormat(m_hdc, &pfd)))
-//			_err();
-//		if (!SetPixelFormat(m_hdc, pixel_format, &pfd))
-//			_err();
-//		ShowWindow(m_hwnd, SW_SHOW);
-//		SetForegroundWindow(m_hwnd);
-//		UpdateWindow(m_hwnd);
         
-        glutInitWindowSize(m_win_width, m_win_height);
-        glutCreateWindow(m_title.c_str());
+        /* Create a windowed mode window and its OpenGL context */
+        _p_window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+        if (!_p_window)
+        {
+            glfwTerminate();
+            return;
+        }
+        
+        /* Make the window's context current */
+        glfwMakeContextCurrent(_p_window);
+        
+        
+//        glutInitWindowSize(m_win_width, m_win_height);
+//        glutCreateWindow(m_title.c_str());
     
 		// 构造子系统
 		g_p_openGL = new COpenGL(m_hdc, m_win_width, m_win_height);
 		g_p_tex_mgr = new CTextureManager();
 		g_p_surface = new CSurface();
-		g_p_input = new CInput(m_hwnd);
+		g_p_input = new CInput(_p_window);
 		g_p_script = new CScript();
 		//g_p_pen_mgr = new CPenManager();
 		//g_p_music = new CMusic();

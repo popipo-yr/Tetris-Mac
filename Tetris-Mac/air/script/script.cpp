@@ -168,6 +168,15 @@ namespace air
 			lua_pushboolean(L, false);
 		return 1;
 	}
+    static int L_key_down_by_name_clear(lua_State* L)
+	{
+		const char* p_key = lua_tostring(L, 1);
+		if (g_p_input->key_down_by_name_clear(string(p_key)))
+			lua_pushboolean(L, true);
+		else
+			lua_pushboolean(L, false);
+		return 1;
+	}
 	static int L_key_up_by_name(lua_State* L)
 	{
 		const char* p_key = lua_tostring(L, 1);
@@ -225,6 +234,8 @@ namespace air
 			{ "music_proceed", L_proceed_music },
 			{ "msg", L_debug },
 			{ "quit", L_quit },
+            { "key_down_clear", L_key_down_by_name_clear },
+            
 			{ NULL, NULL },
 		};
 		luaL_register(m_L, "air", lib);

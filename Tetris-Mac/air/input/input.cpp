@@ -27,10 +27,13 @@ namespace air
             
             g_p_input->setKeyDown(key);
             
-        }else{
+        }else if(passed == 0){
         
             g_p_input->setKeyUp(key);
         
+        }else{
+        
+            g_p_input->setKeyDown(key);
         }
     
     }
